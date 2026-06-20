@@ -98,15 +98,6 @@ export function IntroducingGiguSection() {
                 </ScrollReveal>
               ))}
             </ul>
-
-            <ScrollReveal delay={700}>
-              <div className="introducing-gigu-footer">
-                <span className="introducing-gigu-footer-line" />
-                <span className="introducing-gigu-footer-label">
-                  GIGU Moda Akademiyasi
-                </span>
-              </div>
-            </ScrollReveal>
           </div>
         </aside>
       </div>
