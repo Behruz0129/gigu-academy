@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <rect width="1920" height="1080" fill="#120A0E"/>
+  <rect x="0" y="800" width="1920" height="280" fill="#1A0A10" opacity="0.6"/>
+  <line x1="0" y1="540" x2="1920" y2="540" stroke="#FF0D4F" stroke-width="0.5" opacity="0.15"/>
+  <line x1="960" y1="0" x2="960" y2="1080" stroke="#FF0D4F" stroke-width="0.5" opacity="0.15"/>
+  <text x="960" y="520" text-anchor="middle" fill="#FF0D4F" font-family="Georgia, serif" font-size="48" font-style="italic" opacity="0.3">GIGU</text>
+</svg>
