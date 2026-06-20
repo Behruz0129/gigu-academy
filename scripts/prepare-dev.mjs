@@ -6,8 +6,8 @@ const buildId = join(NEXT_DIR, "BUILD_ID");
 const devDir = join(NEXT_DIR, "static", "development");
 
 /**
- * Dev va build bir xil `.next` papkasini buzadi (Windows'da tez-tez ENOENT).
- * Production build qoldiqlari yoki buzilgan cache topilsa — dev boshlanishidan oldin tozalaymiz.
+ * Dev va production build bir xil `.next` papkasini buzadi (Windows'da ENOENT).
+ * Production qoldiqlari yoki aralash cache topilsa — dev boshlanishidan oldin tozalaymiz.
  */
 function shouldCleanDevCache() {
   if (!existsSync(NEXT_DIR)) return false;
@@ -15,14 +15,17 @@ function shouldCleanDevCache() {
   const hasProductionBuild = existsSync(buildId);
   const hasDevCache = existsSync(devDir);
 
-  if (hasProductionBuild && !hasDevCache) {
-    return true;
-  }
+  // Production build qoldiqlari
+  if (hasProductionBuild) return true;
+
+  // Production + dev aralash holat (BUILD_ID yo'q, lekin server cache buzilgan)
+  const serverAppDir = join(NEXT_DIR, "server", "app");
+  if (existsSync(serverAppDir) && !hasDevCache) return true;
 
   return false;
 }
 
 if (shouldCleanDevCache()) {
-  console.log("[dev] Buzilgan yoki production .next cache tozalanmoqda...");
+  console.log("[dev] .next cache tozalanmoqda (production/build qoldiqlari)...");
   rmSync(NEXT_DIR, { recursive: true, force: true });
 }

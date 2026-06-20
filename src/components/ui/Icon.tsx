@@ -18,6 +18,11 @@ import {
   ChevronDown,
   MapPin,
   ClipboardList,
+  UserRoundCheck,
+  CalendarDays,
+  Shirt,
+  Plane,
+  Check,
 } from "lucide-react";
 
 const ICONS = {
@@ -39,6 +44,11 @@ const ICONS = {
   chevronDown: ChevronDown,
   mapPin: MapPin,
   clipboardList: ClipboardList,
+  userCheck: UserRoundCheck,
+  calendar: CalendarDays,
+  shirt: Shirt,
+  plane: Plane,
+  check: Check,
 } as const;
 
 export type IconName = keyof typeof ICONS;

@@ -1,5 +1,12 @@
 export type Locale = "uz" | "ru" | "en";
 
+import type { LandingSectionsContent } from "./landing-sections";
+import {
+  landingSectionsEn,
+  landingSectionsRu,
+  landingSectionsUz,
+} from "./landing-sections";
+
 export const locales: Locale[] = ["uz", "ru", "en"];
 
 export const defaultLocale: Locale = "uz";
@@ -63,6 +70,22 @@ export type Translations = {
       text: string;
     }>;
   };
+  studyExperience: {
+    ariaLabel: string;
+    badge: string;
+    title: string;
+    titleEm: string;
+    description: string;
+    features: Array<{
+      slug:
+        | "assistant-teacher"
+        | "flexible-schedule"
+        | "equipped-workspace"
+        | "sew-your-clothes";
+      title: string;
+      text: string;
+    }>;
+  };
   why: {
     badge: string;
     title: string;
@@ -92,10 +115,8 @@ export type Translations = {
       }>;
     };
   };
-  footer: {
-    rights: string;
-  };
-};
+  footer: LandingSectionsContent["footer"];
+} & LandingSectionsContent;
 
 export const translations: Record<Locale, Translations> = {
   uz: {
@@ -170,6 +191,36 @@ export const translations: Record<Locale, Translations> = {
           index: "05",
           title: "Daromadga chiqish imkoniyati",
           text: "Ko'plab o'quvchilar kurs davomidayoq buyurtma olib daromad qilishni boshlaydi.",
+        },
+      ],
+    },
+    studyExperience: {
+      ariaLabel: "O'qish sharoiti",
+      badge: "O'qish sharoiti",
+      title: "GIGU'da o'qish",
+      titleEm: "qanday tashkil etilgan?",
+      description:
+        "Har bir o'quvchi uchun qulay, xavfsiz va to'liq jihozlangan muhit yaratilgan — siz faqat o'rganishga e'tibor qaratishingiz kifoya.",
+      features: [
+        {
+          slug: "assistant-teacher",
+          title: "Yordamchi ustoz",
+          text: "Darsni tushunmay qolgan yoki o'tkazib yuborgan o'quvchilarga alohida yordam beriladi.",
+        },
+        {
+          slug: "flexible-schedule",
+          title: "Qulay dars jadvali",
+          text: "Ertalab, tushlik va kechki guruhlar mavjud — o'zingizga mos vaqtda o'qishingiz mumkin.",
+        },
+        {
+          slug: "equipped-workspace",
+          title: "To'liq jihozlangan ish muhiti",
+          text: "Tikuv mashinasi, maneken, dazmol va barcha kerakli ish qurollari taqdim etiladi.",
+        },
+        {
+          slug: "sew-your-clothes",
+          title: "O'z kiyimingizni tikish",
+          text: "O'zingizga va boshqalarga professional darajada kiyim tikishni o'rganasiz.",
         },
       ],
     },
@@ -274,9 +325,7 @@ export const translations: Record<Locale, Translations> = {
         ],
       },
     },
-    footer: {
-      rights: "Barcha huquqlar himoyalangan.",
-    },
+    ...landingSectionsUz,
   },
   ru: {
     nav: {
@@ -350,6 +399,36 @@ export const translations: Record<Locale, Translations> = {
           index: "05",
           title: "Возможность зарабатывать",
           text: "Многие ученицы уже во время курса начинают принимать заказы и получать доход.",
+        },
+      ],
+    },
+    studyExperience: {
+      ariaLabel: "Условия обучения",
+      badge: "Условия обучения",
+      title: "Как организовано",
+      titleEm: "обучение в GIGU?",
+      description:
+        "Для каждой ученицы создана комфортная, безопасная и полностью оснащённая среда — вам остаётся сосредоточиться только на учёбе.",
+      features: [
+        {
+          slug: "assistant-teacher",
+          title: "Помощник преподавателя",
+          text: "Ученицам, которые не поняли урок или пропустили занятие, оказывается отдельная помощь.",
+        },
+        {
+          slug: "flexible-schedule",
+          title: "Удобное расписание",
+          text: "Есть утренние, дневные и вечерние группы — можно учиться в удобное для вас время.",
+        },
+        {
+          slug: "equipped-workspace",
+          title: "Полностью оснащённая мастерская",
+          text: "Предоставляются швейная машина, манекен, утюг и все необходимые инструменты.",
+        },
+        {
+          slug: "sew-your-clothes",
+          title: "Шитьё собственной одежды",
+          text: "Вы научитесь шить одежду для себя и других на профессиональном уровне.",
         },
       ],
     },
@@ -454,9 +533,7 @@ export const translations: Record<Locale, Translations> = {
         ],
       },
     },
-    footer: {
-      rights: "Все права защищены.",
-    },
+    ...landingSectionsRu,
   },
   en: {
     nav: {
@@ -530,6 +607,36 @@ export const translations: Record<Locale, Translations> = {
           index: "05",
           title: "Path to earning income",
           text: "Many students start taking orders and earning while still on the course.",
+        },
+      ],
+    },
+    studyExperience: {
+      ariaLabel: "Study experience",
+      badge: "Study experience",
+      title: "How learning",
+      titleEm: "works at GIGU",
+      description:
+        "Every student gets a comfortable, safe, and fully equipped environment — so you can focus entirely on learning.",
+      features: [
+        {
+          slug: "assistant-teacher",
+          title: "Assistant teacher",
+          text: "Students who miss a lesson or need extra help receive dedicated support.",
+        },
+        {
+          slug: "flexible-schedule",
+          title: "Flexible schedule",
+          text: "Morning, afternoon, and evening groups are available — study at a time that suits you.",
+        },
+        {
+          slug: "equipped-workspace",
+          title: "Fully equipped workspace",
+          text: "Sewing machines, mannequins, irons, and all essential tools are provided.",
+        },
+        {
+          slug: "sew-your-clothes",
+          title: "Sew your own clothes",
+          text: "Learn to sew professional-quality garments for yourself and others.",
         },
       ],
     },
@@ -634,9 +741,7 @@ export const translations: Record<Locale, Translations> = {
         ],
       },
     },
-    footer: {
-      rights: "All rights reserved.",
-    },
+    ...landingSectionsEn,
   },
 };
 

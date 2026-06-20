@@ -12,7 +12,6 @@ type SectionHeaderProps = SectionHeaderContent & {
 };
 
 export function SectionHeader({
-  number,
   badge,
   title,
   titleEm,
@@ -21,22 +20,12 @@ export function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <header className={`max-w-2xl ${className}`}>
-      <div className="mb-6 flex items-end gap-4">
-        <span
-          className={`font-display text-5xl font-light leading-none sm:text-6xl md:text-7xl ${
-            dark ? "text-white/20" : "text-primary/20"
-          }`}
-          aria-hidden="true"
-        >
-          {number}
-        </span>
-        <span
-          className={`section-badge ${dark ? "border-white/40 text-white/60" : ""}`}
-        >
-          {badge}
-        </span>
-      </div>
+    <header className={`max-w-3xl ${className}`}>
+      <span
+        className={`badge-secondary mb-5${dark ? " badge-secondary--on-dark" : ""}`}
+      >
+        {badge}
+      </span>
       <h2
         className={`font-display text-4xl font-medium leading-tight sm:text-5xl md:text-6xl ${
           dark ? "text-white" : "text-text-primary"
@@ -46,7 +35,7 @@ export function SectionHeader({
         <em className="font-display italic text-gradient-pink">{titleEm}</em>
       </h2>
       <p
-        className={`mt-4 max-w-lg text-base leading-relaxed sm:text-lg ${
+        className={`mt-4 max-w-xl text-base leading-relaxed sm:text-lg ${
           dark ? "text-white/60" : "text-muted"
         }`}
       >

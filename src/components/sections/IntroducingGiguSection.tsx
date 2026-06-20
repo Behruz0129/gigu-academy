@@ -1,24 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useI18n } from "@/components/providers/I18nProvider";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const INTRO_IMAGE = "/images/introducing-gigu.jpg";
 const INTRO_FALLBACK = "/images/introducing-gigu-fallback.svg";
 
 export function IntroducingGiguSection() {
   const { t } = useI18n();
-  const sectionRef = useRef<HTMLElement>(null);
   const [imageSrc, setImageSrc] = useState(INTRO_IMAGE);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
 
   useEffect(() => {
     setImageSrc(INTRO_IMAGE);
@@ -27,12 +17,11 @@ export function IntroducingGiguSection() {
   return (
     <section
       id="introducing-gigu"
-      ref={sectionRef}
       className="introducing-gigu"
       aria-labelledby="introducing-gigu-heading"
     >
       <div className="introducing-gigu-bg" aria-hidden="true">
-        <motion.div className="introducing-gigu-bg-media" style={{ y: bgY }}>
+        <div className="introducing-gigu-bg-media">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imageSrc}
@@ -40,7 +29,7 @@ export function IntroducingGiguSection() {
             className="introducing-gigu-bg-image"
             onError={() => setImageSrc(INTRO_FALLBACK)}
           />
-        </motion.div>
+        </div>
         <div className="introducing-gigu-bg-vignette" />
         <div className="introducing-gigu-bg-gradient" />
         <div className="introducing-gigu-bg-grain" />
@@ -51,13 +40,11 @@ export function IntroducingGiguSection() {
 
         <aside className="introducing-gigu-panel">
           <div className="introducing-gigu-panel-inner">
-            <ScrollReveal>
-              <span className="badge-secondary introducing-gigu-badge">
+            <div className="introducing-gigu-intro">
+              <span className="badge-secondary badge-secondary--on-dark introducing-gigu-badge">
                 {t.introducing.badge}
               </span>
-            </ScrollReveal>
 
-            <ScrollReveal delay={80}>
               <h2
                 id="introducing-gigu-heading"
                 className="introducing-gigu-title"
@@ -67,21 +54,16 @@ export function IntroducingGiguSection() {
                   {t.introducing.titleEm}
                 </em>
               </h2>
-            </ScrollReveal>
 
-            <ScrollReveal delay={160}>
               <p className="introducing-gigu-description">
                 {t.introducing.description}
               </p>
-            </ScrollReveal>
+              <div className="introducing-gigu-intro-divider" aria-hidden="true" />
+            </div>
 
             <ul className="introducing-gigu-pillars">
-              {t.introducing.pillars.map((pillar, index) => (
-                <ScrollReveal
-                  key={pillar.index}
-                  delay={240 + index * 90}
-                  as="li"
-                >
+              {t.introducing.pillars.map((pillar) => (
+                <li key={pillar.index}>
                   <article className="introducing-gigu-pillar">
                     <span className="introducing-gigu-pillar-index">
                       {pillar.index}
@@ -95,7 +77,7 @@ export function IntroducingGiguSection() {
                       </p>
                     </div>
                   </article>
-                </ScrollReveal>
+                </li>
               ))}
             </ul>
           </div>
