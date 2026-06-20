@@ -7,12 +7,15 @@ if (!command || !["build", "start"].includes(command)) {
   process.exit(1);
 }
 
+// Vercel `.next` kutadi; mahalliy dev/build ziddiyatini `.next-build` bilan chetlab o'tamiz
+const distDir = process.env.VERCEL ? ".next" : ".next-build";
+
 const result = spawnSync("next", [command], {
   stdio: "inherit",
   shell: true,
   env: {
     ...process.env,
-    NEXT_DIST_DIR: ".next-build",
+    NEXT_DIST_DIR: distDir,
   },
 });
 
