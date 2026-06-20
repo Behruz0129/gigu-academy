@@ -33,6 +33,14 @@ export const metadata: Metadata = {
     "sewing courses",
   ],
   authors: [{ name: "GIGU Moda Akademiyasi" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "uz_UZ",
