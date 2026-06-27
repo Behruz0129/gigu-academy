@@ -23,6 +23,7 @@ import {
   Shirt,
   Plane,
   Check,
+  Play,
 } from "lucide-react";
 
 const ICONS = {
@@ -49,6 +50,7 @@ const ICONS = {
   shirt: Shirt,
   plane: Plane,
   check: Check,
+  play: Play,
 } as const;
 
 export type IconName = keyof typeof ICONS;

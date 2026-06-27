@@ -1,5 +1,220 @@
 /* Landing sections — Events, Teachers, Branches, Courses, Results, FAQ, Footer */
 
+/* ── Stats (video + bento cards) ── */
+.stats-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .stats-layout {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+}
+
+.stats-video-wrap {
+  width: 100%;
+}
+
+.stats-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-pink);
+  background: linear-gradient(
+    150deg,
+    rgba(40, 16, 26, 0.95) 0%,
+    rgba(18, 10, 14, 0.98) 100%
+  );
+  box-shadow: 0 18px 44px rgba(255, 13, 79, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .stats-video {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+.stats-video-el {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stats-video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 10, 14, 0.08) 0%,
+    rgba(18, 10, 14, 0.32) 100%
+  );
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.35s ease, background-color 0.35s ease;
+}
+
+.stats-video.is-playing .stats-video-play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stats-video-play > svg {
+  position: relative;
+  z-index: 1;
+  margin-left: 3px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.stats-video-play-ring {
+  position: absolute;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 999px;
+  background: var(--gradient-pink);
+  box-shadow:
+    0 10px 26px rgba(255, 13, 79, 0.4),
+    0 0 0 6px rgba(255, 13, 79, 0.14);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stats-video-play:hover .stats-video-play-ring {
+  transform: scale(1.08);
+}
+
+@media (min-width: 768px) {
+  .stats-video-play-ring {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+}
+
+.stats-bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .stats-bento {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-bento {
+    height: 100%;
+    grid-auto-rows: 1fr;
+  }
+}
+
+.stats-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-height: 8.5rem;
+  padding: 1.125rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--color-border-pink);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+@media (min-width: 768px) {
+  .stats-card {
+    padding: 1.375rem 1.5rem;
+  }
+}
+
+.stats-card:hover {
+  border-color: rgba(255, 13, 79, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(255, 13, 79, 0.08);
+}
+
+.stats-card-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.stats-card-value {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  transition: color 0.3s ease;
+}
+
+.stats-card:hover .stats-card-value {
+  background: var(--gradient-pink-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stats-card-note {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(26, 10, 16, 0.4);
+}
+
+.stats-card-icon {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.stats-card-icon img {
+  width: 4.0625rem;
+  height: 4.0625rem;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .stats-card-icon img {
+    width: 6.375rem;
+    height: 6.375rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stats-video-play-ring,
+  .stats-card {
+    transition: none;
+  }
+
+  .stats-card:hover {
+    transform: none;
+  }
+}
+
 /* ── Events (dark bento) ── */
 .events-section {
   position: relative;

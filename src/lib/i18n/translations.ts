@@ -40,17 +40,16 @@ export type Translations = {
     close: string;
   };
   hero: {
-    badge: string;
     titleLine1: string;
     titleLine2: string;
     titleLine3: string;
     subtitle: string;
     cta: string;
-    ctaSecondary: string;
     marquee: string[];
   };
   advantages: {
     ariaLabel: string;
+    playLabel: string;
     items: {
       branches: { value: string; label: string };
       graduates: { value: string; label: string };
@@ -133,16 +132,14 @@ export const translations: Record<Locale, Translations> = {
       close: "Yopish",
     },
     hero: {
-      badge: "Moda Akademiyasi",
       titleLine1: "Kelajak",
       titleLine2: "modangizni",
       titleLine3: "shu yerda yarating",
       subtitle:
-        "GIGU Moda Akademiyasi — tikuvchilik va dizaynerlik sohasida professional ta'lim markazi",
+        "O'zbekistondagi eng yirik tikuvchilik va dizaynerlik akademiyasi",
       cta: "Birinchi bepul darsga yoziling",
-      ctaSecondary: "Kurslarni ko'rish",
       marquee: [
-        "MODA & SAN'AT",
+        "FASHION DIZAYN",
         "TIKUVCHILIK",
         "PROFESSIONAL TA'LIM",
         "TAJRIBALI USTOZLAR",
@@ -152,11 +149,12 @@ export const translations: Record<Locale, Translations> = {
     },
     advantages: {
       ariaLabel: "Afzalliklar",
+      playLabel: "Videoni ijro etish",
       items: {
         branches: { value: "4", label: "Filial" },
         graduates: { value: "5000+", label: "Bitiruvchi" },
         staff: { value: "100+", label: "Xodimlar" },
-        experience: { value: "14", label: "Yillik tajriba" },
+        experience: { value: "14 yillik", label: "Tajriba" },
       },
     },
     introducing: {
@@ -341,16 +339,14 @@ export const translations: Record<Locale, Translations> = {
       close: "Закрыть",
     },
     hero: {
-      badge: "Модная Академия",
       titleLine1: "Будущее",
       titleLine2: "вашей моды",
       titleLine3: "создайте здесь",
       subtitle:
-        "GIGU Moda Akademiyasi — профессиональный учебный центр в сфере шитья и дизайна",
+        "Крупнейшая академия шитья и дизайна в Узбекистане",
       cta: "Запишитесь на первый бесплатный урок",
-      ctaSecondary: "Смотреть курсы",
       marquee: [
-        "МОДА И ИСКУССТВО",
+        "FASHION DIZAYN",
         "ШИТЬЁ",
         "ПРОФЕССИОНАЛЬНОЕ ОБУЧЕНИЕ",
         "ОПЫТНЫЕ ПРЕПОДАВАТЕЛИ",
@@ -360,11 +356,12 @@ export const translations: Record<Locale, Translations> = {
     },
     advantages: {
       ariaLabel: "Преимущества",
+      playLabel: "Воспроизвести видео",
       items: {
         branches: { value: "4", label: "Филиала" },
         graduates: { value: "5000+", label: "Выпускников" },
         staff: { value: "100+", label: "Сотрудников" },
-        experience: { value: "14", label: "Лет опыта" },
+        experience: { value: "14 лет", label: "Опыта" },
       },
     },
     introducing: {
@@ -549,16 +546,14 @@ export const translations: Record<Locale, Translations> = {
       close: "Close",
     },
     hero: {
-      badge: "Fashion Academy",
       titleLine1: "Create",
       titleLine2: "your fashion",
       titleLine3: "future here",
       subtitle:
-        "GIGU Fashion Academy — a professional training center in sewing and design",
+        "Uzbekistan's largest sewing and design academy",
       cta: "Sign up for your first free lesson",
-      ctaSecondary: "View Courses",
       marquee: [
-        "FASHION & ART",
+        "FASHION DIZAYN",
         "SEWING",
         "PROFESSIONAL EDUCATION",
         "EXPERIENCED TEACHERS",
@@ -568,11 +563,12 @@ export const translations: Record<Locale, Translations> = {
     },
     advantages: {
       ariaLabel: "Advantages",
+      playLabel: "Play video",
       items: {
         branches: { value: "4", label: "Branches" },
         graduates: { value: "5000+", label: "Graduates" },
         staff: { value: "100+", label: "Staff" },
-        experience: { value: "14", label: "Years of Experience" },
+        experience: { value: "14 yrs", label: "Experience" },
       },
     },
     introducing: {

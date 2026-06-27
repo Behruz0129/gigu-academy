@@ -43,7 +43,7 @@ export function HeroSection() {
   return (
     <section
       id="showcase"
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-bg-dark"
+      className="relative flex min-h-[70svh] flex-col justify-end overflow-hidden bg-bg-dark md:min-h-[100svh]"
       aria-label="Showcase"
     >
       <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -73,17 +73,13 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/55 to-transparent" />
       </div>
 
-      <div className="relative z-[1] mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-end px-4 pb-8 pt-32 sm:px-6 sm:pb-12 md:px-8 md:pb-16 lg:px-10 lg:pb-20">
+      <div className="relative z-[1] mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-end px-4 pb-6 pt-20 sm:px-6 sm:pb-12 sm:pt-32 md:px-8 md:pb-16 lg:px-10 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-4xl"
+          className="hero-content max-w-4xl text-left"
         >
-          <span className="section-badge mb-6 inline-block border-white/30 text-white/60">
-            {t.hero.badge}
-          </span>
-
           <h1 className="font-display hero-title">
             <span className="hero-title-line hero-title-line--muted">
               {t.hero.titleLine1}
@@ -96,22 +92,16 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-xl font-body text-[0.9375rem] leading-relaxed text-white/80 sm:mt-7 sm:text-base md:max-w-lg">
+          <p className="hero-subtitle mt-6 max-w-xl font-body text-[0.9375rem] leading-relaxed text-white/80 sm:mt-7 sm:text-base md:max-w-lg">
             {t.hero.subtitle}
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:items-center sm:gap-6">
+          <div className="mt-8 flex justify-start sm:mt-10">
             <a href="#enroll" className="btn-shiny w-full sm:w-auto">
               <span className="inline-flex items-center gap-2">
                 {t.hero.cta}
                 <Icon name="scissors" size={15} strokeWidth={2} />
               </span>
-            </a>
-            <a
-              href="#courses"
-              className="btn-glass w-fit text-white/75 hover:text-white"
-            >
-              {t.hero.ctaSecondary}
             </a>
           </div>
         </motion.div>

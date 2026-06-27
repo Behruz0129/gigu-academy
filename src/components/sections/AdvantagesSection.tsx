@@ -2,14 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/components/providers/I18nProvider";
+import { Icon } from "@/components/ui/Icon";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { StatsWhyFloatDecor } from "@/components/sections/StatsWhyFloatDecor";
 
+const STATS_VIDEO = "/videos/stats.mp4";
+const STATS_POSTER = "/images/stats/poster.jpg";
+
 type AdvantageItem = {
+  key: string;
   value: string;
   label: string;
   numericValue: number;
   suffix?: string;
+  note?: string;
+  icon: string;
 };
 
 function useCountUp(
@@ -23,12 +30,14 @@ function useCountUp(
   useEffect(() => {
     if (!started) return;
 
+    const format = (n: number) => `${n.toLocaleString("en-US")}${suffix}`;
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReduced) {
-      setDisplay(`${target}${suffix}`);
+      setDisplay(format(target));
       return;
     }
 
@@ -40,12 +49,12 @@ function useCountUp(
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * target);
-      setDisplay(`${current}${suffix}`);
+      setDisplay(format(current));
 
       if (progress < 1) {
         frame = requestAnimationFrame(animate);
       } else {
-        setDisplay(`${target}${suffix}`);
+        setDisplay(format(target));
       }
     };
 
@@ -56,7 +65,7 @@ function useCountUp(
   return display;
 }
 
-function AdvantageCard({
+function StatCard({
   item,
   index,
   started,
@@ -73,16 +82,28 @@ function AdvantageCard({
   );
 
   return (
-    <ScrollReveal delay={index * 100}>
-      <article className="glass-card group p-6 sm:p-8 md:p-10">
-        <p className="font-display text-5xl font-medium leading-none text-text-primary transition-all duration-300 group-hover:text-gradient-pink sm:text-6xl md:text-7xl">
-          {started ? animatedValue : item.value}
-        </p>
-        <div className="mt-4 h-px w-8 bg-gradient-pink-line opacity-30 transition-all duration-300 group-hover:w-12 group-hover:opacity-100" />
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted">
-          {item.label}
-        </p>
-      </article>
+    <ScrollReveal
+      delay={index * 90}
+      as="article"
+      className={`stats-card stats-card--${item.key}`}
+    >
+      <p className="stats-card-label">{item.label}</p>
+      <p className="stats-card-value">
+        {started ? animatedValue : item.value}
+      </p>
+      {item.note ? <p className="stats-card-note">{item.note}</p> : null}
+      <span className="stats-card-icon" aria-hidden="true">
+        {/* Icon slot — rasmli icon shu yerga joylashadi */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.icon}
+          alt=""
+          loading="lazy"
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+          }}
+        />
+      </span>
     </ScrollReveal>
   );
 }
@@ -90,30 +111,41 @@ function AdvantageCard({
 export function AdvantagesSection() {
   const { t } = useI18n();
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   const items: AdvantageItem[] = [
     {
+      key: "branches",
       value: t.advantages.items.branches.value,
       label: t.advantages.items.branches.label,
       numericValue: 4,
+      icon: "/images/stats/branches.png",
     },
     {
+      key: "graduates",
       value: t.advantages.items.graduates.value,
       label: t.advantages.items.graduates.label,
       numericValue: 5000,
       suffix: "+",
+      icon: "/images/stats/graduates.png",
     },
     {
+      key: "staff",
       value: t.advantages.items.staff.value,
       label: t.advantages.items.staff.label,
       numericValue: 100,
       suffix: "+",
+      icon: "/images/stats/staff.png",
     },
     {
+      key: "experience",
       value: t.advantages.items.experience.value,
       label: t.advantages.items.experience.label,
       numericValue: 14,
+      suffix: t.advantages.items.experience.value.replace(/[\d,]/g, ""),
+      icon: "/images/stats/experience.png",
     },
   ];
 
@@ -135,24 +167,72 @@ export function AdvantagesSection() {
     return () => observer.disconnect();
   }, []);
 
+  const handlePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.play().catch(() => {
+      /* play bloklangan bo'lsa hech narsa qilmaymiz */
+    });
+  };
+
+  const handlePause = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      handlePlay();
+    } else {
+      video.pause();
+    }
+  };
+
   return (
     <section
       id="advantages"
       ref={sectionRef}
-      className="relative overflow-visible py-16 sm:py-20 md:py-24 lg:py-28"
+      className="stats-section relative overflow-visible py-16 sm:py-20 md:py-24 lg:py-28"
       aria-label={t.advantages.ariaLabel}
     >
       <StatsWhyFloatDecor />
       <div className="relative z-[1] mx-auto max-w-[1280px] px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="grid grid-cols-1 gap-px bg-border-pink sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item, index) => (
-            <AdvantageCard
-              key={item.label}
-              item={item}
-              index={index}
-              started={started}
-            />
-          ))}
+        <div className="stats-layout">
+          <ScrollReveal className="stats-video-wrap">
+            <div className={`stats-video${playing ? " is-playing" : ""}`}>
+              <video
+                ref={videoRef}
+                className="stats-video-el"
+                poster={STATS_POSTER}
+                playsInline
+                preload="metadata"
+                onPlay={() => setPlaying(true)}
+                onPause={() => setPlaying(false)}
+                onEnded={() => setPlaying(false)}
+                onClick={handlePause}
+              >
+                <source src={STATS_VIDEO} type="video/mp4" />
+              </video>
+
+              <button
+                type="button"
+                className="stats-video-play"
+                aria-label={t.advantages.playLabel}
+                onClick={handlePlay}
+              >
+                <span className="stats-video-play-ring" aria-hidden="true" />
+                <Icon name="play" size={24} strokeWidth={1.75} />
+              </button>
+            </div>
+          </ScrollReveal>
+
+          <div className="stats-bento">
+            {items.map((item, index) => (
+              <StatCard
+                key={item.key}
+                item={item}
+                index={index}
+                started={started}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
