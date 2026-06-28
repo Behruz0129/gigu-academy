@@ -498,14 +498,17 @@
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
+  --marq-card: 60vw;
+  --marq-gap: 0.75rem;
   animation: teachersMarquee 18s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
-  transform: translateZ(0);
 }
 
 @media (min-width: 640px) {
   .teachers-grid {
+    --marq-card: 38vw;
+    --marq-gap: 1rem;
     animation-duration: 26s;
   }
 }
@@ -515,8 +518,15 @@
 }
 
 @keyframes teachersMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(
+      calc(-8 * (var(--marq-card) + var(--marq-gap))),
+      0,
+      0
+    );
   }
 }
 
@@ -544,8 +554,8 @@
 
 .teachers-card {
   position: relative;
-  flex: 0 0 60vw;
-  margin-right: 0.75rem;
+  flex: 0 0 var(--marq-card);
+  margin-right: var(--marq-gap);
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -559,13 +569,6 @@
     transform 0.4s ease,
     box-shadow 0.4s ease,
     border-color 0.35s ease;
-}
-
-@media (min-width: 640px) {
-  .teachers-card {
-    flex-basis: 38vw;
-    margin-right: 1rem;
-  }
 }
 
 @media (min-width: 1024px) {
