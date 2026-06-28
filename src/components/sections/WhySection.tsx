@@ -3,7 +3,6 @@
 import { useI18n } from "@/components/providers/I18nProvider";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WhyAudienceAccordion } from "@/components/sections/WhyAudienceAccordion";
-import { WhyMarketDashboard } from "@/components/sections/WhyMarketDashboard";
 import { WhyPostCarousel } from "@/components/sections/WhyPostCarousel";
 
 export function WhySection() {
@@ -42,17 +41,6 @@ export function WhySection() {
             <WhyAudienceAccordion
               title={t.why.audience.title}
               items={t.why.audience.items}
-            />
-          </ScrollReveal>
-
-          <ScrollReveal
-            delay={200}
-            className="why-content-col why-content-col--extra"
-          >
-            <WhyMarketDashboard
-              cta={t.why.market.cta}
-              ctaHref={t.why.market.ctaHref}
-              items={t.why.market.items}
             />
           </ScrollReveal>
         </div>

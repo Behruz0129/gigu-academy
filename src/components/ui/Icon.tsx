@@ -26,6 +26,9 @@ import {
   Plane,
   Check,
   Play,
+  Phone,
+  Building2,
+  Award,
 } from "lucide-react";
 
 const ICONS = {
@@ -55,6 +58,9 @@ const ICONS = {
   plane: Plane,
   check: Check,
   play: Play,
+  phone: Phone,
+  building: Building2,
+  award: Award,
 } as const;
 
 export type IconName = keyof typeof ICONS;

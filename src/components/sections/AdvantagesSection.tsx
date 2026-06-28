@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/components/providers/I18nProvider";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { StatsWhyFloatDecor } from "@/components/sections/StatsWhyFloatDecor";
 
@@ -16,7 +16,7 @@ type AdvantageItem = {
   numericValue: number;
   suffix?: string;
   note?: string;
-  icon: string;
+  icon: IconName;
 };
 
 function useCountUp(
@@ -87,23 +87,16 @@ function StatCard({
       as="article"
       className={`stats-card stats-card--${item.key}`}
     >
-      <p className="stats-card-label">{item.label}</p>
-      <p className="stats-card-value">
-        {started ? animatedValue : item.value}
-      </p>
-      {item.note ? <p className="stats-card-note">{item.note}</p> : null}
       <span className="stats-card-icon" aria-hidden="true">
-        {/* Icon slot — rasmli icon shu yerga joylashadi */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={item.icon}
-          alt=""
-          loading="lazy"
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-        />
+        <Icon name={item.icon} size={44} strokeWidth={1.5} />
       </span>
+      <div className="stats-card-text">
+        <p className="stats-card-value">
+          {started ? animatedValue : item.value}
+        </p>
+        <p className="stats-card-label">{item.label}</p>
+        {item.note ? <p className="stats-card-note">{item.note}</p> : null}
+      </div>
     </ScrollReveal>
   );
 }
@@ -121,7 +114,7 @@ export function AdvantagesSection() {
       value: t.advantages.items.branches.value,
       label: t.advantages.items.branches.label,
       numericValue: 4,
-      icon: "/images/stats/branches.png",
+      icon: "building",
     },
     {
       key: "graduates",
@@ -129,7 +122,7 @@ export function AdvantagesSection() {
       label: t.advantages.items.graduates.label,
       numericValue: 5000,
       suffix: "+",
-      icon: "/images/stats/graduates.png",
+      icon: "graduation",
     },
     {
       key: "staff",
@@ -137,7 +130,7 @@ export function AdvantagesSection() {
       label: t.advantages.items.staff.label,
       numericValue: 100,
       suffix: "+",
-      icon: "/images/stats/staff.png",
+      icon: "users",
     },
     {
       key: "experience",
@@ -145,7 +138,7 @@ export function AdvantagesSection() {
       label: t.advantages.items.experience.label,
       numericValue: 14,
       suffix: t.advantages.items.experience.value.replace(/[\d,]/g, ""),
-      icon: "/images/stats/experience.png",
+      icon: "award",
     },
   ];
 
