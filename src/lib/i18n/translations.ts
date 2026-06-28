@@ -185,11 +185,6 @@ export const translations: Record<Locale, Translations> = {
           title: "Faqat ayol-qizlar muhiti",
           text: "Erkin, qulay va motivatsion muhitda rivojlanasiz.",
         },
-        {
-          index: "05",
-          title: "Daromadga chiqish imkoniyati",
-          text: "Ko'plab o'quvchilar kurs davomidayoq buyurtma olib daromad qilishni boshlaydi.",
-        },
       ],
     },
     studyExperience: {
@@ -230,9 +225,9 @@ export const translations: Record<Locale, Translations> = {
         "Bu yo'nalish nafaqat kasb, balki shaxsiy o'sish, ijod va mustaqillik sari ochilgan eshik.",
       posts: [
         {
-          title: "Shaxsiy rivojlanish, ijod va mustaqillik",
+          title: "Shaxsiy rivojlanish",
           description:
-            "Bu yerda nafaqat kasb o'rganasiz — o'z qadr-qimmatingizni his qilasiz, hayotingizni ijobiy o'zgartirasiz va mustaqil qarorlar qabul qila boshlaysiz.",
+            "Yangi hunar egallab, o'zingizga bo'lgan ishonchni oshirasiz va har tomonlama rivojlangan shaxs sifatida shakllanasiz.",
         },
         {
           title: "Ayol-qizlar muhiti",
@@ -261,26 +256,20 @@ export const translations: Record<Locale, Translations> = {
           {
             title: "Maktab o'quvchilari",
             description:
-              "O'qishdan keyin qisqa muddatda kasb egallash, ijodiy qiziqishni rivojlantirish va mustaqil daromad manbasiga ega bo'lish imkoniyati.",
+              "Yoshlikdan dizayner bo'lishni orzu qilgan, o'z qiziqishini rivojlantirib, kelajak kasbiga tayyorgarlik ko'rmoqchi bo'lganlar.",
             icon: "graduation",
           },
           {
             title: "O'z ishini boshlamoqchi bo'lganlar",
             description:
-              "Tikuvchilik va dizayn sohasida o'z studiyangiz, brendingiz yoki xizmat ko'rsatish markazingizni ochish uchun zarur bilim va amaliy ko'nikmalarni olasiz.",
+              "Shaxsiy brend yaratish, mijozlar topish va kasbi orqali yuqori daromad qilishni istaganlar.",
             icon: "briefcase",
           },
           {
             title: "Uy bekalari va kelinlar",
             description:
-              "Uydan chiqmasdan qulay vaqt rejimida o'rganib, oila byudjetiga hissa qo'shish va o'z qiziqishingizni kasbga aylantirish imkoniyati.",
+              "Vaqtini mazmunli o'tkazish, yangi muhitga kirish va o'ziga foydali mashg'ulot topishni istaganlar.",
             icon: "home",
-          },
-          {
-            title: "Ayolar va onalar",
-            description:
-              "Bolalar ta'limiga qaramay mos jadvalda o'rganish, qo'llab-quvvatlovchi ayollar muhitida rivojlanish va yangi imkoniyatlar ochish.",
-            icon: "users",
           },
         ],
       },
@@ -392,11 +381,6 @@ export const translations: Record<Locale, Translations> = {
           title: "Только женская среда",
           text: "Развиваетесь в свободной, комфортной и мотивирующей атмосфере.",
         },
-        {
-          index: "05",
-          title: "Возможность зарабатывать",
-          text: "Многие ученицы уже во время курса начинают принимать заказы и получать доход.",
-        },
       ],
     },
     studyExperience: {
@@ -437,9 +421,9 @@ export const translations: Record<Locale, Translations> = {
         "Это направление — не просто профессия, а путь к росту, творчеству и независимости.",
       posts: [
         {
-          title: "Личностный рост, творчество и независимость",
+          title: "Личностный рост",
           description:
-            "Здесь вы получаете не только профессию — вы ощущаете свою ценность, меняете жизнь к лучшему и учитесь принимать самостоятельные решения.",
+            "Осваивая новое ремесло, вы повышаете уверенность в себе и формируетесь как всесторонне развитая личность.",
         },
         {
           title: "Женская среда",
@@ -468,26 +452,20 @@ export const translations: Record<Locale, Translations> = {
           {
             title: "Школьницы",
             description:
-              "Возможность быстро освоить профессию после учёбы, развить творческий интерес и получить источник дохода.",
+              "Те, кто с детства мечтает стать дизайнером, хочет развивать свои интересы и готовиться к будущей профессии.",
             icon: "graduation",
           },
           {
             title: "Те, кто хочет начать своё дело",
             description:
-              "Знания и практические навыки для открытия студии, бренда или сервиса в сфере шитья и дизайна.",
+              "Те, кто хочет создать личный бренд, найти клиентов и хорошо зарабатывать благодаря профессии.",
             icon: "briefcase",
           },
           {
             title: "Домохозяйки и невесты",
             description:
-              "Обучение в удобном графике без выхода из дома, вклад в семейный бюджет и превращение хобби в профессию.",
+              "Те, кто хочет проводить время с пользой, войти в новую среду и найти для себя полезное занятие.",
             icon: "home",
-          },
-          {
-            title: "Женщины и мамы",
-            description:
-              "Гибкий график, поддерживающая женская среда и новые возможности для развития.",
-            icon: "users",
           },
         ],
       },
@@ -599,11 +577,6 @@ export const translations: Record<Locale, Translations> = {
           title: "Women-only environment",
           text: "Grow in a free, comfortable, and motivating atmosphere.",
         },
-        {
-          index: "05",
-          title: "Path to earning income",
-          text: "Many students start taking orders and earning while still on the course.",
-        },
       ],
     },
     studyExperience: {
@@ -644,9 +617,9 @@ export const translations: Record<Locale, Translations> = {
         "This path is not just a career — it's a doorway to personal growth, creativity, and independence.",
       posts: [
         {
-          title: "Personal growth, creativity, and independence",
+          title: "Personal growth",
           description:
-            "Here you gain more than a skill — you discover your self-worth, reshape your life for the better, and learn to make independent decisions.",
+            "By mastering a new craft, you build self-confidence and grow into a well-rounded individual.",
         },
         {
           title: "A women's community",
@@ -675,26 +648,20 @@ export const translations: Record<Locale, Translations> = {
           {
             title: "School students",
             description:
-              "A chance to master a profession quickly after school, nurture creative interests, and build an income stream.",
+              "Those who have dreamed of becoming a designer since childhood and want to develop their interests and prepare for a future career.",
             icon: "graduation",
           },
           {
             title: "Aspiring entrepreneurs",
             description:
-              "The knowledge and practical skills to launch your own studio, brand, or sewing service business.",
+              "Those who want to build a personal brand, find clients, and earn a high income through their craft.",
             icon: "briefcase",
           },
           {
             title: "Homemakers and brides",
             description:
-              "Learn on a flexible schedule from home, contribute to the family budget, and turn your passion into a career.",
+              "Those who want to spend their time meaningfully, enter a new environment, and find a rewarding pursuit.",
             icon: "home",
-          },
-          {
-            title: "Women and mothers",
-            description:
-              "Flexible timing around family life, a supportive women's community, and new opportunities to grow.",
-            icon: "users",
           },
         ],
       },

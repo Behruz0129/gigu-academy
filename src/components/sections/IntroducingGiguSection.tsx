@@ -54,11 +54,6 @@ export function IntroducingGiguSection() {
                   {t.introducing.titleEm}
                 </em>
               </h2>
-
-              <p className="introducing-gigu-description">
-                {t.introducing.description}
-              </p>
-              <div className="introducing-gigu-intro-divider" aria-hidden="true" />
             </div>
 
             <ul className="introducing-gigu-pillars">

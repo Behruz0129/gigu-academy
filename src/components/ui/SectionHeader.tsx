@@ -34,13 +34,15 @@ export function SectionHeader({
         {title}{" "}
         <em className="font-display italic text-gradient-pink">{titleEm}</em>
       </h2>
-      <p
-        className={`mt-4 max-w-xl text-base leading-relaxed sm:text-lg ${
-          dark ? "text-white/60" : "text-muted"
-        }`}
-      >
-        {description}
-      </p>
+      {description ? (
+        <p
+          className={`mt-4 max-w-xl text-base leading-relaxed sm:text-lg ${
+            dark ? "text-white/60" : "text-muted"
+          }`}
+        >
+          {description}
+        </p>
+      ) : null}
     </header>
   );
 }

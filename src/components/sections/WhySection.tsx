@@ -29,9 +29,6 @@ export function WhySection() {
                   {t.why.titleEm}
                 </em>
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-                {t.why.description}
-              </p>
             </div>
           </header>
         </ScrollReveal>

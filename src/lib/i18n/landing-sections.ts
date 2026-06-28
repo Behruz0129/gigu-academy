@@ -124,8 +124,8 @@ export const landingSectionsUz: LandingSectionsContent = {
     ariaLabel: "Qo'shimcha tadbirlar",
     number: "06",
     badge: "Tadbirlar",
-    title: "Akademiyadan",
-    titleEm: "tashqariga ham",
+    title: "Bilimdan",
+    titleEm: "haqiqiy tajribaga",
     description:
       "Darsdan tashqari imkoniyatlar — sahna, xalqaro tajriba va professional hamjamiyat.",
     items: [
@@ -196,6 +196,36 @@ export const landingSectionsUz: LandingSectionsContent = {
         students: "300+",
         specialty:
           "O'quvchilar bilan individual ishlash va motivatsiya",
+      },
+      {
+        id: "5",
+        name: "Sevara Yusupova",
+        experience: "12+ yil",
+        students: "600+",
+        specialty:
+          "Bichish va tikishda zamonaviy texnikalar bo'yicha mutaxassis",
+      },
+      {
+        id: "6",
+        name: "Gulnoza Sobirova",
+        experience: "9+ yil",
+        students: "450+",
+        specialty: "Trikotaj va bezak ishlarida amaliy yondashuv",
+      },
+      {
+        id: "7",
+        name: "Feruza Olimova",
+        experience: "18+ yil",
+        students: "900+",
+        specialty:
+          "Milliy va zamonaviy liboslar konstruksiyasi bo'yicha tajriba",
+      },
+      {
+        id: "8",
+        name: "Shahnoza Aliyeva",
+        experience: "8+ yil",
+        students: "400+",
+        specialty: "Stil va imidj yaratishda kreativ yondashuv",
       },
     ],
   },
@@ -385,8 +415,8 @@ export const landingSectionsRu: LandingSectionsContent = {
     ariaLabel: "Дополнительные мероприятия",
     number: "06",
     badge: "Мероприятия",
-    title: "За пределами",
-    titleEm: "аудитории",
+    title: "От знаний —",
+    titleEm: "к реальному опыту",
     description:
       "Возможности за рамками занятий — сцена, международный опыт и профессиональное сообщество.",
     items: [
@@ -588,8 +618,8 @@ export const landingSectionsEn: LandingSectionsContent = {
     ariaLabel: "Extra events",
     number: "06",
     badge: "Events",
-    title: "Beyond",
-    titleEm: "the classroom",
+    title: "From learning to",
+    titleEm: "real experience",
     description:
       "Opportunities outside lessons — the runway, international experience, and a professional community.",
     items: [

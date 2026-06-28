@@ -582,9 +582,36 @@
     inset-block: 0;
     left: 0;
     display: block;
+    width: 0;
     border-radius: inherit;
     background: var(--gradient-pink);
-    transition: width 0.08s linear;
+    will-change: width;
+  }
+
+  .why-post-indicator.is-complete .why-post-indicator-fill {
+    width: 100%;
+  }
+
+  .why-post-indicator.is-active .why-post-indicator-fill {
+    animation-name: whyPostFill;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes whyPostFill {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .why-post-indicator.is-active .why-post-indicator-fill {
+      animation: none;
+      width: 100%;
+    }
   }
 
   .why-audience-surface {
@@ -1790,7 +1817,7 @@
     width: 100%;
     overflow: hidden;
     background: var(--color-bg-dark);
-    --introducing-section-h: 810px;
+    --introducing-section-h: 750px;
     height: var(--introducing-section-h);
     min-height: var(--introducing-section-h);
   }
@@ -1877,7 +1904,7 @@
     flex: 1;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0;
+    gap: 1.5rem;
     min-height: 0;
     height: 100%;
     width: 100%;
@@ -1891,24 +1918,12 @@
     flex-shrink: 0;
   }
 
-  .introducing-gigu-intro-divider {
-    width: 100%;
-    height: 1px;
-    margin-top: 0.875rem;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 13, 79, 0.55) 0%,
-      rgba(255, 255, 255, 0.14) 38%,
-      transparent 100%
-    );
-  }
-
   .introducing-gigu-pillars {
     display: flex;
     flex-direction: column;
     gap: 0;
     margin: 0;
-    padding: 0.75rem 0 0;
+    padding: 0;
     list-style: none;
   }
 
@@ -2011,13 +2026,19 @@
 
     .introducing-gigu-panel-inner {
       --intro-content-inset: 1.5rem;
+      justify-content: center;
+      gap: clamp(1.75rem, 4vh, 3rem);
       padding-top: 2.75rem;
-      padding-bottom: 2rem;
+      padding-bottom: 2.75rem;
       padding-left: 2.75rem;
       padding-right: max(
         var(--intro-content-inset),
         calc((100vw - min(100vw, 80rem)) / 2 + var(--intro-content-inset))
       );
+    }
+
+    .introducing-gigu-pillar {
+      padding: clamp(0.9rem, 1.9vh, 1.45rem) 0;
     }
 
     .introducing-gigu-panel::-webkit-scrollbar {
@@ -2087,7 +2108,11 @@
 
     .introducing-gigu-panel {
       overflow: visible;
-      background: rgba(18, 10, 14, 0.72);
+      background: linear-gradient(
+        180deg,
+        rgba(18, 10, 14, 0.32) 0%,
+        rgba(18, 10, 14, 0.5) 100%
+      );
     }
 
     .introducing-gigu-panel-inner {
@@ -2098,11 +2123,15 @@
       padding-right: 1rem;
     }
 
+    .introducing-gigu-bg-image {
+      object-position: 34% 30%;
+    }
+
     .introducing-gigu-bg-gradient {
       background: linear-gradient(
         180deg,
-        rgba(18, 10, 14, 0.08) 0%,
-        rgba(18, 10, 14, 0.72) 100%
+        rgba(18, 10, 14, 0.04) 0%,
+        rgba(18, 10, 14, 0.5) 100%
       );
     }
   }
@@ -2135,85 +2164,112 @@
     }
   }
 
-  .study-experience-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-    margin-top: 2.5rem;
-    background-color: var(--color-border-pink);
+  .study-experience-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .study-experience-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    padding-bottom: 0.25rem;
+  }
+
+  .study-experience-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
     border: 1px solid var(--color-border-pink);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.2s ease,
+      opacity 0.25s ease;
+  }
+
+  .study-experience-arrow:hover:not(:disabled) {
+    background: var(--gradient-pink);
+    color: #ffffff;
+    border-color: transparent;
+  }
+
+  .study-experience-arrow:active:not(:disabled) {
+    transform: scale(0.94);
+  }
+
+  .study-experience-arrow:disabled {
+    opacity: 0.32;
+    cursor: not-allowed;
+  }
+
+  .study-experience-track {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .study-experience-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .study-experience-card {
+    flex: 0 0 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    scroll-snap-align: start;
   }
 
   @media (min-width: 640px) {
-    .study-experience-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin-top: 3rem;
+    .study-experience-track {
+      margin-top: 2.5rem;
+    }
+
+    .study-experience-card {
+      flex-basis: 46%;
     }
   }
 
   @media (min-width: 1024px) {
-    .study-experience-grid {
+    .study-experience-controls {
+      display: none;
+    }
+
+    .study-experience-track {
+      display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-top: 3.5rem;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-bottom: 0;
+      overflow: visible;
+    }
+
+    .study-experience-card {
+      flex: initial;
     }
   }
 
-  .study-experience-cell {
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-    min-height: 100%;
-    padding: 1.75rem 1.5rem;
-    background-color: var(--color-bg-page);
-    transition: background-color 0.3s ease;
-  }
-
-  @media (min-width: 768px) {
-    .study-experience-cell {
-      padding: 2rem 1.75rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .study-experience-cell {
-      padding: 2.25rem 2rem;
-    }
-  }
-
-  .study-experience-cell:hover {
-    background-color: rgba(255, 240, 244, 0.55);
-  }
-
-  .study-experience-cell-title {
-    font-family: var(--font-display), Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.25;
-    color: var(--color-text-primary);
-  }
-
-  @media (min-width: 1024px) {
-    .study-experience-cell-title {
-      font-size: 1.3125rem;
-    }
-  }
-
-  .study-experience-cell-text {
-    font-size: 0.9375rem;
-    line-height: 1.62;
-    color: var(--color-text-muted);
-  }
-
-  .study-experience-media {
+  .study-experience-card-media {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
-    margin-top: auto;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border-pink);
+    border-radius: var(--radius-lg);
     background: linear-gradient(
       135deg,
       rgba(255, 240, 244, 0.85) 0%,
@@ -2221,7 +2277,7 @@
     );
   }
 
-  .study-experience-media-image {
+  .study-experience-card-image {
     display: block;
     width: 100%;
     height: 100%;
@@ -2229,17 +2285,41 @@
     transition: transform 0.45s ease;
   }
 
-  .study-experience-cell:hover .study-experience-media-image {
+  .study-experience-card:hover .study-experience-card-image {
     transform: scale(1.04);
   }
 
+  .study-experience-card-title {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+  }
+
+  @media (min-width: 1024px) {
+    .study-experience-card-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  .study-experience-card-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .study-experience-media-image {
+    .study-experience-card-image {
       transition: none;
     }
 
-    .study-experience-cell:hover .study-experience-media-image {
+    .study-experience-card:hover .study-experience-card-image {
       transform: none;
+    }
+
+    .study-experience-track {
+      scroll-behavior: auto;
     }
   }
 }

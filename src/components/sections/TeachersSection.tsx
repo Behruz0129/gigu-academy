@@ -21,36 +21,35 @@ export function TeachersSection() {
           <SectionHeader {...getSectionHeaderProps(t.teachers)} />
         </ScrollReveal>
 
-        <div className="teachers-track">
+        <div className="teachers-grid">
           {t.teachers.items.map((teacher, index) => (
             <ScrollReveal
               key={teacher.id}
-              delay={80 + index * 70}
+              delay={60 + (index % 4) * 70}
               className="teachers-card"
             >
-              <div className="teachers-card-photo">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/images/teachers/teacher-${teacher.id}.jpg`}
-                  alt={teacher.name}
-                  loading="lazy"
-                />
-                <div className="teachers-card-photo-shade" />
-              </div>
-              <div className="teachers-card-body">
-                <p className="teachers-card-index">0{teacher.id}</p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/images/teachers/teacher-${teacher.id}.jpg`}
+                alt={teacher.name}
+                loading="lazy"
+                decoding="async"
+                className="teachers-card-img"
+              />
+              <div className="teachers-card-overlay" />
+              <div className="teachers-card-content">
                 <h3 className="teachers-card-name">{teacher.name}</h3>
+                <p className="teachers-card-specialty">{teacher.specialty}</p>
                 <dl className="teachers-card-stats">
-                  <div>
+                  <div className="teachers-card-stat">
                     <dt>{t.teachers.experienceLabel}</dt>
                     <dd>{teacher.experience}</dd>
                   </div>
-                  <div>
+                  <div className="teachers-card-stat">
                     <dt>{t.teachers.studentsLabel}</dt>
                     <dd>{teacher.students}</dd>
                   </div>
                 </dl>
-                <p className="teachers-card-specialty">{teacher.specialty}</p>
               </div>
             </ScrollReveal>
           ))}

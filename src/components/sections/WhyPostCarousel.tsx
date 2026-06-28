@@ -6,7 +6,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { WHY_POST_IMAGES } from "@/lib/why-posts";
 
 const SLIDE_DURATION_MS = 5500;
-const TICK_MS = 32;
 const CROSSFADE_MS = 700;
 
 type Post = {
@@ -20,15 +19,13 @@ type WhyPostCarouselProps = {
 
 export function WhyPostCarousel({ posts }: WhyPostCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [paused, setPaused] = useState(false);
-  const elapsedRef = useRef(0);
+  const remainingRef = useRef(SLIDE_DURATION_MS);
+  const startRef = useRef(0);
 
   const goTo = useCallback(
     (index: number) => {
       setActiveIndex((index + posts.length) % posts.length);
-      setProgress(0);
-      elapsedRef.current = 0;
     },
     [posts.length],
   );
@@ -40,25 +37,26 @@ export function WhyPostCarousel({ posts }: WhyPostCarouselProps) {
     });
   }, []);
 
+  // Reset the remaining time whenever the active slide changes.
+  useEffect(() => {
+    remainingRef.current = SLIDE_DURATION_MS;
+  }, [activeIndex]);
+
+  // Advance the slide with a single timeout; pause/resume preserves the
+  // remaining time so no per-frame state updates are needed.
   useEffect(() => {
     if (paused || posts.length <= 1) return;
 
-    const timer = window.setInterval(() => {
-      if (document.hidden) return;
+    startRef.current = Date.now();
+    const timer = window.setTimeout(() => {
+      setActiveIndex((current) => (current + 1) % posts.length);
+    }, remainingRef.current);
 
-      elapsedRef.current += TICK_MS;
-      const nextProgress = Math.min(elapsedRef.current / SLIDE_DURATION_MS, 1);
-      setProgress(nextProgress);
-
-      if (nextProgress >= 1) {
-        setActiveIndex((current) => (current + 1) % posts.length);
-        setProgress(0);
-        elapsedRef.current = 0;
-      }
-    }, TICK_MS);
-
-    return () => window.clearInterval(timer);
-  }, [activeIndex, paused, posts.length]);
+    return () => {
+      window.clearTimeout(timer);
+      remainingRef.current -= Date.now() - startRef.current;
+    };
+  }, [paused, activeIndex, posts.length]);
 
   const activePost = posts[activeIndex];
 
@@ -116,7 +114,6 @@ export function WhyPostCarousel({ posts }: WhyPostCarouselProps) {
         {posts.map((_, index) => {
           const isActive = index === activeIndex;
           const isComplete = index < activeIndex;
-          const fill = isComplete ? 100 : isActive ? progress * 100 : 0;
 
           return (
             <button
@@ -125,12 +122,18 @@ export function WhyPostCarousel({ posts }: WhyPostCarouselProps) {
               role="tab"
               aria-selected={isActive}
               aria-label={`${index + 1}-post`}
-              className="why-post-indicator"
+              className={`why-post-indicator ${isActive ? "is-active" : ""} ${
+                isComplete ? "is-complete" : ""
+              }`}
               onClick={() => goTo(index)}
             >
               <span
+                key={isActive ? activeIndex : `idle-${index}`}
                 className="why-post-indicator-fill"
-                style={{ width: `${fill}%` }}
+                style={{
+                  animationDuration: `${SLIDE_DURATION_MS}ms`,
+                  animationPlayState: paused ? "paused" : "running",
+                }}
               />
             </button>
           );
