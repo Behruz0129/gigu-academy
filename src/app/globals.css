@@ -2232,6 +2232,9 @@
     margin-top: 2rem;
     padding-bottom: 0.5rem;
     overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 0;
     -webkit-overflow-scrolling: touch;
@@ -2272,6 +2275,7 @@
       margin-top: 3rem;
       padding-bottom: 0;
       overflow: visible;
+      touch-action: auto;
     }
 
     .study-experience-card {

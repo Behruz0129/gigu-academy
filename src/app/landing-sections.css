@@ -905,21 +905,23 @@
   height: 2.125rem;
   flex-shrink: 0;
   border-radius: 999px;
-  color: #fff;
-  background: var(--gradient-pink);
-  border: 1px solid transparent;
-  box-shadow: 0 4px 12px rgba(255, 13, 79, 0.22);
+  color: var(--color-primary);
+  background: #fff;
+  border: 1px solid rgba(255, 13, 79, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 10, 16, 0.06);
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease,
+    color 0.25s ease,
     transform 0.2s ease,
     box-shadow 0.25s ease;
 }
 
 .branches-card-action:hover {
-  background: var(--gradient-pink-hover);
+  background: rgba(255, 13, 79, 0.1);
+  border-color: rgba(255, 13, 79, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(255, 13, 79, 0.32);
+  box-shadow: 0 8px 18px rgba(255, 13, 79, 0.18);
 }
 
 .branches-card-action:active {
