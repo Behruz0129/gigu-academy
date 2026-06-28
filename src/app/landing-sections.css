@@ -498,7 +498,13 @@
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
-  animation: teachersMarquee 36s linear infinite;
+  animation: teachersMarquee 18s linear infinite;
+}
+
+@media (min-width: 640px) {
+  .teachers-grid {
+    animation-duration: 26s;
+  }
 }
 
 .teachers-grid.is-paused {
