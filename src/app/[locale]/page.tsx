@@ -9,6 +9,7 @@ import { EventsSection } from "@/components/sections/EventsSection";
 import { TeachersSection } from "@/components/sections/TeachersSection";
 import { BranchesSection } from "@/components/sections/BranchesSection";
 import { CoursesSection } from "@/components/sections/CoursesSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { ResultsSection } from "@/components/sections/ResultsSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 
@@ -26,11 +27,11 @@ export default function HomePage() {
         <TeachersSection />
         <BranchesSection />
         <CoursesSection />
+        <ContactSection />
         <ResultsSection />
         <FaqSection />
       </main>
       <SiteFooter />
-      <div id="enroll" className="sr-only" aria-hidden="true" />
     </>
   );
 }

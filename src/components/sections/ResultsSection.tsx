@@ -1,14 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
   SectionHeader,
   getSectionHeaderProps,
 } from "@/components/ui/SectionHeader";
+import { SocialIcon } from "@/components/ui/SocialIcon";
+
+const RESULT_SHOTS = Array.from(
+  { length: 8 },
+  (_, i) => `/images/results/result-${i + 1}.jpg`,
+);
 
 export function ResultsSection() {
   const { t } = useI18n();
+  const [paused, setPaused] = useState(false);
 
   return (
     <section
@@ -16,27 +24,39 @@ export function ResultsSection() {
       className="results-section"
       aria-label={t.results.ariaLabel}
     >
-      <div className="results-section-inner mx-auto max-w-[1280px] px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="results-layout">
-          <ScrollReveal className="results-intro">
-            <SectionHeader dark {...getSectionHeaderProps(t.results)} />
-          </ScrollReveal>
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 md:px-8 lg:px-10">
+        <ScrollReveal>
+          <SectionHeader {...getSectionHeaderProps(t.results)} />
+        </ScrollReveal>
+      </div>
 
-          <div className="results-cards">
-            {t.results.items.map((item, index) => (
-              <ScrollReveal
-                key={item.id}
-                delay={120 + index * 100}
-                className={`results-card${item.placeholder ? " results-card--placeholder" : ""}`}
-              >
-                <span className="results-card-badge">{item.role}</span>
-                <h3 className="results-card-name">{item.name}</h3>
-                <p className="results-card-text">
-                  {item.placeholder ? t.results.placeholder : item.text}
-                </p>
-              </ScrollReveal>
-            ))}
-          </div>
+      <div
+        className="results-wall"
+        onPointerDown={() => setPaused(true)}
+        onPointerUp={() => setPaused(false)}
+        onPointerLeave={() => setPaused(false)}
+        onPointerCancel={() => setPaused(false)}
+      >
+        <div className={`results-track${paused ? " is-paused" : ""}`}>
+          {[...RESULT_SHOTS, ...RESULT_SHOTS].map((src, index) => (
+            <figure
+              key={`${src}-${index}`}
+              className="results-shot"
+              aria-hidden={index >= RESULT_SHOTS.length || undefined}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="results-shot-img"
+              />
+              <span className="results-shot-badge">
+                <SocialIcon name="instagram" size={15} />
+              </span>
+            </figure>
+          ))}
         </div>
       </div>
     </section>

@@ -99,7 +99,6 @@ export function BranchesSection() {
         <ScrollReveal>
           <div className="branches-header">
             <SectionHeader
-              dark
               {...getSectionHeaderProps(t.branches)}
               description=""
             />
@@ -145,15 +144,16 @@ export function BranchesSection() {
                 className="branches-card"
                 aria-hidden={isClone || undefined}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={BRANCH_IMAGES[branch.slug]}
-                  alt={branch.city}
-                  loading="lazy"
-                  decoding="async"
-                  className="branches-card-img"
-                />
-                <div className="branches-card-shade" />
+                <div className="branches-card-media">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={BRANCH_IMAGES[branch.slug]}
+                    alt={branch.city}
+                    loading="lazy"
+                    decoding="async"
+                    className="branches-card-img"
+                  />
+                </div>
                 <div className="branches-card-info">
                   <div className="branches-card-text">
                     <h3 className="branches-card-city">{branch.city}</h3>

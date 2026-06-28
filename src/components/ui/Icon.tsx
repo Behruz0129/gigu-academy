@@ -29,6 +29,8 @@ import {
   Phone,
   Building2,
   Award,
+  Clock,
+  Send,
 } from "lucide-react";
 
 const ICONS = {
@@ -61,6 +63,8 @@ const ICONS = {
   phone: Phone,
   building: Building2,
   award: Award,
+  clock: Clock,
+  send: Send,
 } as const;
 
 export type IconName = keyof typeof ICONS;

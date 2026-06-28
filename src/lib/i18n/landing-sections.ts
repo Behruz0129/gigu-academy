@@ -100,6 +100,45 @@ export type LandingSectionsContent = {
     description: string;
     items: Array<{ index: string; question: string; answer: string }>;
   };
+  contact: {
+    ariaLabel: string;
+    number: string;
+    badge: string;
+    title: string;
+    titleEm: string;
+    description: string;
+    contacts: {
+      callLabel: string;
+      phone: string;
+      writeLabel: string;
+      telegram: string;
+      telegramHref: string;
+      addressLabel: string;
+      address: string;
+      hoursLabel: string;
+      hours: string;
+    };
+    form: {
+      nameLabel: string;
+      namePlaceholder: string;
+      phoneLabel: string;
+      phonePlaceholder: string;
+      courseLabel: string;
+      coursePlaceholder: string;
+      branchLabel: string;
+      branchPlaceholder: string;
+      commentLabel: string;
+      commentOptional: string;
+      commentPlaceholder: string;
+      submit: string;
+      nameError: string;
+      phoneError: string;
+      privacy: string;
+      successTitle: string;
+      successText: string;
+      reset: string;
+    };
+  };
   footer: {
     tagline: string;
     rights: string;
@@ -161,8 +200,7 @@ export const landingSectionsUz: LandingSectionsContent = {
     badge: "Ustozlar",
     title: "Tajribali",
     titleEm: "ustozlar jamoasi",
-    description:
-      "Har bir ustoz o'z yo'nalishida chuqur bilim va amaliy tajribaga ega mutaxassis.",
+    description: "",
     experienceLabel: "Tajriba",
     studentsLabel: "O'quvchilar soni",
     items: [
@@ -319,7 +357,7 @@ export const landingSectionsUz: LandingSectionsContent = {
     title: "O'quvchilarimiz",
     titleEm: "natijalari",
     description:
-      "Ayol-qizlarimiz kurs davomida va kursdan so'ng turli xil kiyimlarni noldan tikishni o'rganishadi, atelye ochishadi, o'z brendini yaratishadi, daromad topishni boshlashadi.",
+      "Akademiyamizni bitirib, o'z brendini yaratgan dizayner qizlarimiz — quyida ularning Instagram sahifalari.",
     placeholder: "Ma'lumot qo'shiladi",
     items: [
       {
@@ -370,6 +408,47 @@ export const landingSectionsUz: LandingSectionsContent = {
           "Kurs narxi berilayotgan imkoniyatlar va bozor qiymatiga nisbatan eng maqbul darajada. Ko'plab o'quvchilarimiz kurs davomida yoki yakunidan so'ng sarflagan pulini qaytarib olish darajasiga chiqishadi.",
       },
     ],
+  },
+  contact: {
+    ariaLabel: "Ro'yxatdan o'tish",
+    number: "11",
+    badge: "Ro'yxatdan o'tish",
+    title: "Birinchi bepul darsga",
+    titleEm: "yoziling",
+    description: "",
+    contacts: {
+      callLabel: "Qo'ng'iroq qiling",
+      phone: "+998 71 000 00 00",
+      writeLabel: "Telegram orqali yozing",
+      telegram: "@giguuz",
+      telegramHref: "https://t.me/giguuz",
+      addressLabel: "Bosh ofis",
+      address: "Toshkent, O'zbekiston",
+      hoursLabel: "Ish vaqti",
+      hours: "Dush–Shan, 09:00–19:00",
+    },
+    form: {
+      nameLabel: "Ismingiz",
+      namePlaceholder: "Ism familiyangiz",
+      phoneLabel: "Telefon raqamingiz",
+      phonePlaceholder: "+998 90 123 45 67",
+      courseLabel: "Qaysi kurs?",
+      coursePlaceholder: "Kursni tanlang",
+      branchLabel: "Qaysi filial?",
+      branchPlaceholder: "Filialni tanlang",
+      commentLabel: "Izoh",
+      commentOptional: "ixtiyoriy",
+      commentPlaceholder: "Savolingiz yoki qo'shimcha ma'lumot...",
+      submit: "Ariza qoldirish",
+      nameError: "Iltimos, ismingizni kiriting",
+      phoneError: "Iltimos, to'g'ri telefon raqam kiriting",
+      privacy:
+        "Ariza yuborish orqali siz shaxsiy ma'lumotlaringizni qayta ishlashga rozilik bildirasiz.",
+      successTitle: "Arizangiz qabul qilindi!",
+      successText:
+        "Rahmat! Administratorlarimiz tez orada siz bilan bog'lanib, batafsil ma'lumot berishadi.",
+      reset: "Yana ariza yuborish",
+    },
   },
   footer: {
     tagline: "Kelajak modangizni shu yerda yarating",
@@ -452,8 +531,7 @@ export const landingSectionsRu: LandingSectionsContent = {
     badge: "Преподаватели",
     title: "Команда",
     titleEm: "опытных наставников",
-    description:
-      "Каждый преподаватель — специалист с глубокими знаниями и практическим опытом.",
+    description: "",
     experienceLabel: "Опыт",
     studentsLabel: "Учениц",
     items: landingSectionsUz.teachers.items.map((item) => ({ ...item })),
@@ -547,7 +625,7 @@ export const landingSectionsRu: LandingSectionsContent = {
     title: "Результаты",
     titleEm: "наших учениц",
     description:
-      "Ученицы учатся шить с нуля, открывают ателье, создают бренды и начинают зарабатывать.",
+      "Наши выпускницы-дизайнеры, создавшие собственные бренды — ниже их страницы в Instagram.",
     placeholder: "Информация будет добавлена",
     items: [
       {
@@ -598,6 +676,47 @@ export const landingSectionsRu: LandingSectionsContent = {
           "Стоимость курса оптимальна относительно возможностей и рыночной ценности.",
       },
     ],
+  },
+  contact: {
+    ariaLabel: "Запись",
+    number: "11",
+    badge: "Запись",
+    title: "Запишитесь на первый",
+    titleEm: "бесплатный урок",
+    description: "",
+    contacts: {
+      callLabel: "Позвоните нам",
+      phone: "+998 71 000 00 00",
+      writeLabel: "Напишите в Telegram",
+      telegram: "@giguuz",
+      telegramHref: "https://t.me/giguuz",
+      addressLabel: "Главный офис",
+      address: "Ташкент, Узбекистан",
+      hoursLabel: "Время работы",
+      hours: "Пн–Сб, 09:00–19:00",
+    },
+    form: {
+      nameLabel: "Ваше имя",
+      namePlaceholder: "Имя и фамилия",
+      phoneLabel: "Номер телефона",
+      phonePlaceholder: "+998 90 123 45 67",
+      courseLabel: "Какой курс?",
+      coursePlaceholder: "Выберите курс",
+      branchLabel: "Какой филиал?",
+      branchPlaceholder: "Выберите филиал",
+      commentLabel: "Комментарий",
+      commentOptional: "необязательно",
+      commentPlaceholder: "Ваш вопрос или дополнительная информация...",
+      submit: "Оставить заявку",
+      nameError: "Пожалуйста, введите имя",
+      phoneError: "Пожалуйста, введите корректный номер",
+      privacy:
+        "Отправляя заявку, вы соглашаетесь на обработку персональных данных.",
+      successTitle: "Заявка принята!",
+      successText:
+        "Спасибо! Наши администраторы свяжутся с вами в ближайшее время и расскажут подробности.",
+      reset: "Отправить ещё одну заявку",
+    },
   },
   footer: {
     tagline: "Создайте будущее своей моды здесь",
@@ -655,8 +774,7 @@ export const landingSectionsEn: LandingSectionsContent = {
     badge: "Teachers",
     title: "Experienced",
     titleEm: "mentors",
-    description:
-      "Each teacher is a specialist with deep knowledge and hands-on experience.",
+    description: "",
     experienceLabel: "Experience",
     studentsLabel: "Students",
     items: landingSectionsUz.teachers.items.map((item) => ({ ...item })),
@@ -750,7 +868,7 @@ export const landingSectionsEn: LandingSectionsContent = {
     title: "Our students'",
     titleEm: "achievements",
     description:
-      "Students learn to sew from scratch, open ateliers, build brands, and start earning.",
+      "Our graduate designers who built their own brands — see their Instagram profiles below.",
     placeholder: "Details coming soon",
     items: [
       {
@@ -801,6 +919,47 @@ export const landingSectionsEn: LandingSectionsContent = {
           "The course price is fair relative to the opportunities and market value.",
       },
     ],
+  },
+  contact: {
+    ariaLabel: "Enroll",
+    number: "11",
+    badge: "Enroll",
+    title: "Sign up for your first",
+    titleEm: "free lesson",
+    description: "",
+    contacts: {
+      callLabel: "Call us",
+      phone: "+998 71 000 00 00",
+      writeLabel: "Message on Telegram",
+      telegram: "@giguuz",
+      telegramHref: "https://t.me/giguuz",
+      addressLabel: "Head office",
+      address: "Tashkent, Uzbekistan",
+      hoursLabel: "Working hours",
+      hours: "Mon–Sat, 09:00–19:00",
+    },
+    form: {
+      nameLabel: "Your name",
+      namePlaceholder: "Full name",
+      phoneLabel: "Phone number",
+      phonePlaceholder: "+998 90 123 45 67",
+      courseLabel: "Which course?",
+      coursePlaceholder: "Select a course",
+      branchLabel: "Which branch?",
+      branchPlaceholder: "Select a branch",
+      commentLabel: "Comment",
+      commentOptional: "optional",
+      commentPlaceholder: "Your question or any extra details...",
+      submit: "Send request",
+      nameError: "Please enter your name",
+      phoneError: "Please enter a valid phone number",
+      privacy:
+        "By submitting this form, you agree to the processing of your personal data.",
+      successTitle: "Request received!",
+      successText:
+        "Thank you! Our team will contact you shortly with all the details.",
+      reset: "Send another request",
+    },
   },
   footer: {
     tagline: "Create the future of your fashion here",
