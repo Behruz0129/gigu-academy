@@ -2,11 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 
+export type RevealVariant =
+  | "fade"
+  | "rise"
+  | "scale"
+  | "slide-left"
+  | "slide-right";
+
 type ScrollRevealProps = {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   as?: React.ElementType;
+  /** Animation style — default is subtle fade */
+  variant?: RevealVariant;
 };
 
 export function ScrollReveal({
@@ -14,6 +23,7 @@ export function ScrollReveal({
   className = "",
   delay = 0,
   as: Tag = "div",
+  variant = "fade",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
@@ -31,6 +41,8 @@ export function ScrollReveal({
       return;
     }
 
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -38,7 +50,9 @@ export function ScrollReveal({
           observer.unobserve(element);
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+      isMobile
+        ? { threshold: 0.06, rootMargin: "0px 0px 8% 0px" }
+        : { threshold: 0.1, rootMargin: "0px 0px -2% 0px" },
     );
 
     observer.observe(element);
@@ -46,12 +60,13 @@ export function ScrollReveal({
   }, []);
 
   const Component = Tag as React.ElementType;
+  const stateClass = visible ? "reveal-visible" : "reveal-hidden";
 
   return (
     <Component
       ref={ref}
-      className={`${visible ? "reveal-visible" : "reveal-hidden"} ${className}`}
-      style={{ transitionDelay: visible ? `${delay}ms` : undefined }}
+      className={`${stateClass} reveal--${variant} ${className}`.trim()}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </Component>

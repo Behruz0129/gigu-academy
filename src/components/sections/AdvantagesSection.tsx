@@ -83,7 +83,8 @@ function StatCard({
 
   return (
     <ScrollReveal
-      delay={index * 90}
+      delay={index * 40}
+      variant="fade"
       as="article"
       className={`stats-card stats-card--${item.key}`}
     >

@@ -7,7 +7,11 @@ export type EventSlug =
   | "masterclass"
   | "team-join";
 
-export type BranchSlug = "tashkent" | "andijon" | "fargona" | "samarqand";
+export type BranchSlug =
+  | "tashkent"
+  | "andijon"
+  | "fargona"
+  | "samarqand";
 
 export type LandingSectionsContent = {
   events: {
@@ -123,16 +127,20 @@ export type LandingSectionsContent = {
       namePlaceholder: string;
       phoneLabel: string;
       phonePlaceholder: string;
+      ageLabel: string;
+      agePlaceholder: string;
       courseLabel: string;
       coursePlaceholder: string;
       branchLabel: string;
       branchPlaceholder: string;
-      commentLabel: string;
-      commentOptional: string;
-      commentPlaceholder: string;
       submit: string;
+      submitting: string;
       nameError: string;
       phoneError: string;
+      ageError: string;
+      branchError: string;
+      courseError: string;
+      submitError: string;
       privacy: string;
       successTitle: string;
       successText: string;
@@ -206,64 +214,60 @@ export const landingSectionsUz: LandingSectionsContent = {
     items: [
       {
         id: "1",
-        name: "Nilufar Karimova",
-        experience: "10+ yil",
-        students: "500+",
-        specialty:
-          "Tikuv texnologiyasi va amaliy mashg'ulotlarda aniqlik va tez o'rgatish uslubi",
+        name: "",
+        experience: "",
+        students: "",
+        specialty: "",
       },
       {
         id: "2",
-        name: "Madina Tosheva",
-        experience: "15+ yil",
-        students: "800+",
-        specialty: "Moda dizayni va eskiz chizishda kreativ yondashuv",
+        name: "Eldoraxon Malikova",
+        experience: "10 yillik",
+        students: "220 nafar",
+        specialty: "«Asos andoza» fani o'qituvchisi",
       },
       {
         id: "3",
-        name: "Dilnoza Rahimova",
-        experience: "20+ yil",
-        students: "1000+",
+        name: "Nigora Kattabayeva",
+        experience: "20 yillik",
+        students: "2000 nafar",
         specialty:
-          "Konstruktsiya va modellashtirish bo'yicha chuqur bilim",
+          "«Yil ustozi» nominatsiyasi sohibasi, oqshom liboslari va akademik ustoz",
       },
       {
         id: "4",
-        name: "Kamola Ergasheva",
-        experience: "7+ yil",
-        students: "300+",
-        specialty:
-          "O'quvchilar bilan individual ishlash va motivatsiya",
+        name: "Gulrux Toxirova",
+        experience: "9 yillik",
+        students: "500 nafar",
+        specialty: "«Eskiz» fani ustozi",
       },
       {
         id: "5",
-        name: "Sevara Yusupova",
-        experience: "12+ yil",
-        students: "600+",
-        specialty:
-          "Bichish va tikishda zamonaviy texnikalar bo'yicha mutaxassis",
+        name: "Xudoyberganova Shoira",
+        experience: "15 yillik",
+        students: "2000 nafar",
+        specialty: "«Tikish» fani asosiy ustozi",
       },
       {
         id: "6",
-        name: "Gulnoza Sobirova",
-        experience: "9+ yil",
-        students: "450+",
-        specialty: "Trikotaj va bezak ishlarida amaliy yondashuv",
+        name: "Iroda Zarifjonova",
+        experience: "4 yillik",
+        students: "1500 nafar",
+        specialty: "«Tikish» fani ustozi",
       },
       {
         id: "7",
-        name: "Feruza Olimova",
-        experience: "18+ yil",
-        students: "900+",
-        specialty:
-          "Milliy va zamonaviy liboslar konstruksiyasi bo'yicha tajriba",
+        name: "",
+        experience: "",
+        students: "",
+        specialty: "",
       },
       {
         id: "8",
-        name: "Shahnoza Aliyeva",
-        experience: "8+ yil",
-        students: "400+",
-        specialty: "Stil va imidj yaratishda kreativ yondashuv",
+        name: "Ra'no Tadjibayeva",
+        experience: "28 yillik",
+        students: "3000 nafar",
+        specialty: "Akademik o'quv bo'limi rahbari",
       },
     ],
   },
@@ -280,30 +284,33 @@ export const landingSectionsUz: LandingSectionsContent = {
       {
         slug: "tashkent",
         city: "Toshkent",
-        address: "Toshkent sh., manzil qo'shiladi",
-        phone: "+998 71 000 00 00",
-        link: "https://maps.google.com",
+        address: "Toshkent shahri, Toshko'cha 144B",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLy-nk",
       },
       {
         slug: "andijon",
         city: "Andijon",
-        address: "Andijon sh., manzil qo'shiladi",
-        phone: "+998 74 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "Andijon shahri, Mashrab ko'chasi, 10-uy. Mo'ljal: Navro'z Mall eshigi ro'parasidagi bino",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLiOja",
       },
       {
         slug: "fargona",
         city: "Farg'ona",
-        address: "Farg'ona sh., manzil qo'shiladi",
-        phone: "+998 73 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "Farg'ona shahri, Sayilgoh ko'chasi, 47-uy. Mo'ljal: Belissimo pitsa qarshisida",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPvVu8mv",
       },
       {
         slug: "samarqand",
         city: "Samarqand",
-        address: "Samarqand sh., manzil qo'shiladi",
-        phone: "+998 66 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "Samarqand shahri, Mirzo Ulug'bek ko'chasi, 134-uy. Mo'ljal: Zafar choyxonasi ro'parasida",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLiYYj",
       },
     ],
   },
@@ -432,16 +439,20 @@ export const landingSectionsUz: LandingSectionsContent = {
       namePlaceholder: "Ism familiyangiz",
       phoneLabel: "Telefon raqamingiz",
       phonePlaceholder: "+998 90 123 45 67",
+      ageLabel: "Yoshingiz",
+      agePlaceholder: "Masalan: 15",
       courseLabel: "Qaysi kurs?",
       coursePlaceholder: "Kursni tanlang",
       branchLabel: "Qaysi filial?",
       branchPlaceholder: "Filialni tanlang",
-      commentLabel: "Izoh",
-      commentOptional: "ixtiyoriy",
-      commentPlaceholder: "Savolingiz yoki qo'shimcha ma'lumot...",
       submit: "Ariza qoldirish",
+      submitting: "Yuborilmoqda...",
       nameError: "Iltimos, ismingizni kiriting",
       phoneError: "Iltimos, to'g'ri telefon raqam kiriting",
+      ageError: "Yosh 7 dan 99 gacha bo'lishi kerak",
+      branchError: "Filialni tanlang",
+      courseError: "Kursni tanlang",
+      submitError: "Arizani yuborib bo'lmadi. Qayta urinib ko'ring.",
       privacy:
         "Ariza yuborish orqali siz shaxsiy ma'lumotlaringizni qayta ishlashga rozilik bildirasiz.",
       successTitle: "Arizangiz qabul qilindi!",
@@ -549,30 +560,33 @@ export const landingSectionsRu: LandingSectionsContent = {
       {
         slug: "tashkent",
         city: "Ташкент",
-        address: "г. Ташкент, адрес будет добавлен",
-        phone: "+998 71 000 00 00",
-        link: "https://maps.google.com",
+        address: "г. Ташкент, ул. Тошкоча, 144Б",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLy-nk",
       },
       {
         slug: "andijon",
         city: "Андижан",
-        address: "г. Андижан, адрес будет добавлен",
-        phone: "+998 74 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "г. Андижан, ул. Машраб, 10. Ориентир: здание напротив входа Navruz Mall",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLiOja",
       },
       {
         slug: "fargona",
         city: "Фергана",
-        address: "г. Фергана, адрес будет добавлен",
-        phone: "+998 73 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "г. Фергана, ул. Сайилгох, 47. Ориентир: напротив Belissimo pizza",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPvVu8mv",
       },
       {
         slug: "samarqand",
         city: "Самарканд",
-        address: "г. Самарканд, адрес будет добавлен",
-        phone: "+998 66 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "г. Самарканд, ул. Мирzo Ulug'bek, 134. Ориентир: напротив чайханы Zafar",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLiYYj",
       },
     ],
   },
@@ -700,16 +714,20 @@ export const landingSectionsRu: LandingSectionsContent = {
       namePlaceholder: "Имя и фамилия",
       phoneLabel: "Номер телефона",
       phonePlaceholder: "+998 90 123 45 67",
+      ageLabel: "Ваш возраст",
+      agePlaceholder: "Например: 15",
       courseLabel: "Какой курс?",
       coursePlaceholder: "Выберите курс",
       branchLabel: "Какой филиал?",
       branchPlaceholder: "Выберите филиал",
-      commentLabel: "Комментарий",
-      commentOptional: "необязательно",
-      commentPlaceholder: "Ваш вопрос или дополнительная информация...",
       submit: "Оставить заявку",
+      submitting: "Отправка...",
       nameError: "Пожалуйста, введите имя",
       phoneError: "Пожалуйста, введите корректный номер",
+      ageError: "Возраст должен быть от 7 до 99",
+      branchError: "Выберите филиал",
+      courseError: "Выберите курс",
+      submitError: "Не удалось отправить заявку. Попробуйте снова.",
       privacy:
         "Отправляя заявку, вы соглашаетесь на обработку персональных данных.",
       successTitle: "Заявка принята!",
@@ -792,30 +810,33 @@ export const landingSectionsEn: LandingSectionsContent = {
       {
         slug: "tashkent",
         city: "Tashkent",
-        address: "Tashkent, address to be added",
-        phone: "+998 71 000 00 00",
-        link: "https://maps.google.com",
+        address: "Tashkent city, Toshko'cha 144B",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLy-nk",
       },
       {
         slug: "andijon",
         city: "Andijan",
-        address: "Andijan, address to be added",
-        phone: "+998 74 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "Andijan city, Mashrab 10. Landmark: building opposite Navruz Mall entrance",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLiOja",
       },
       {
         slug: "fargona",
         city: "Fergana",
-        address: "Fergana, address to be added",
-        phone: "+998 73 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "Fergana city, Sayilgoh 47. Landmark: opposite Belissimo pizza",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPvVu8mv",
       },
       {
         slug: "samarqand",
         city: "Samarkand",
-        address: "Samarkand, address to be added",
-        phone: "+998 66 000 00 00",
-        link: "https://maps.google.com",
+        address:
+          "Samarkand city, Mirzo Ulug'bek 134. Landmark: opposite Zafar teahouse",
+        phone: "+998 55 588 08 80",
+        link: "https://yandex.uz/maps/-/CPxLiYYj",
       },
     ],
   },
@@ -943,16 +964,20 @@ export const landingSectionsEn: LandingSectionsContent = {
       namePlaceholder: "Full name",
       phoneLabel: "Phone number",
       phonePlaceholder: "+998 90 123 45 67",
+      ageLabel: "Your age",
+      agePlaceholder: "e.g. 15",
       courseLabel: "Which course?",
       coursePlaceholder: "Select a course",
       branchLabel: "Which branch?",
       branchPlaceholder: "Select a branch",
-      commentLabel: "Comment",
-      commentOptional: "optional",
-      commentPlaceholder: "Your question or any extra details...",
       submit: "Send request",
+      submitting: "Sending...",
       nameError: "Please enter your name",
       phoneError: "Please enter a valid phone number",
+      ageError: "Age must be between 7 and 99",
+      branchError: "Please select a branch",
+      courseError: "Please select a course",
+      submitError: "Could not send your request. Please try again.",
       privacy:
         "By submitting this form, you agree to the processing of your personal data.",
       successTitle: "Request received!",

@@ -93,7 +93,7 @@ export function CoursesSection() {
 
         <div className="pricing-grid">
           {t.courses.items.map((course, index) => (
-            <ScrollReveal key={course.id} delay={100 + index * 90}>
+            <ScrollReveal key={course.id} variant="scale" delay={50 + index * 40}>
               <CoursePricingCard
                 course={course}
                 featuredBadge={t.courses.featuredBadge}

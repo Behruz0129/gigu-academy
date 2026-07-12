@@ -99,10 +99,9 @@ export function StudyExperienceSection() {
         </ScrollReveal>
 
         <div className="study-experience-track" ref={trackRef}>
-          {t.studyExperience.features.map((feature, index) => (
-            <ScrollReveal
+          {t.studyExperience.features.map((feature) => (
+            <article
               key={feature.slug}
-              delay={120 + index * 90}
               className="study-experience-card"
             >
               <div className="study-experience-card-media">
@@ -117,7 +116,7 @@ export function StudyExperienceSection() {
               </div>
               <h3 className="study-experience-card-title">{feature.title}</h3>
               <p className="study-experience-card-text">{feature.text}</p>
-            </ScrollReveal>
+            </article>
           ))}
         </div>
       </div>

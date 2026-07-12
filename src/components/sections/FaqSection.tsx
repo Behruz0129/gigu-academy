@@ -29,7 +29,7 @@ export function FaqSection() {
               const buttonId = `faq-trigger-${index}`;
 
               return (
-                <ScrollReveal key={item.index} delay={80 + index * 60} as="li">
+                <li key={item.index}>
                   <article className={`faq-item${isOpen ? " faq-item--open" : ""}`}>
                     <button
                       id={buttonId}
@@ -72,7 +72,7 @@ export function FaqSection() {
                       )}
                     </AnimatePresence>
                   </article>
-                </ScrollReveal>
+                </li>
               );
             })}
           </ul>

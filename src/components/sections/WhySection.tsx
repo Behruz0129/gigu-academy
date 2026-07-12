@@ -33,11 +33,15 @@ export function WhySection() {
         </ScrollReveal>
 
         <div className="why-content-grid mt-10 md:mt-14 lg:mt-16">
-          <ScrollReveal className="why-content-col why-content-col--posts">
+          <ScrollReveal variant="slide-left" className="why-content-col why-content-col--posts">
             <WhyPostCarousel posts={t.why.posts} />
           </ScrollReveal>
 
-          <ScrollReveal delay={120} className="why-content-col why-content-col--audience">
+          <ScrollReveal
+            variant="slide-right"
+            delay={80}
+            className="why-content-col why-content-col--audience"
+          >
             <WhyAudienceAccordion
               title={t.why.audience.title}
               items={t.why.audience.items}

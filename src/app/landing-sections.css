@@ -366,8 +366,8 @@
   inset: 0;
   background: linear-gradient(
     145deg,
-    rgba(40, 16, 26, 0.95) 0%,
-    rgba(18, 10, 14, 0.98) 100%
+    rgba(40, 16, 26, 0.65) 0%,
+    rgba(18, 10, 14, 0.75) 100%
   );
 }
 
@@ -385,12 +385,12 @@
 }
 
 .events-card-img.is-active {
-  opacity: 0.55;
+  opacity: 0.78;
 }
 
 .events-card:hover .events-card-img.is-active {
   transform: scale(1.06);
-  opacity: 0.72;
+  opacity: 0.92;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -408,9 +408,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(18, 10, 14, 0.15) 0%,
-    rgba(18, 10, 14, 0.55) 45%,
-    rgba(18, 10, 14, 0.92) 100%
+    rgba(18, 10, 14, 0.05) 0%,
+    rgba(18, 10, 14, 0.28) 50%,
+    rgba(18, 10, 14, 0.72) 100%
   );
 }
 
@@ -1987,6 +1987,139 @@
 .contact-reset:hover {
   background: rgba(255, 13, 79, 0.14);
   transform: translateY(-2px);
+}
+
+.contact-submit-error {
+  margin: 0;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-primary-deep);
+  background: rgba(255, 13, 79, 0.08);
+  border: 1px solid rgba(255, 13, 79, 0.22);
+}
+
+.contact-submit:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Standalone lead pages (/lead/[source]) ── */
+.lead-page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-page);
+  overflow: hidden;
+}
+
+.lead-page-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 15% 0%,
+      rgba(255, 13, 79, 0.08) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 90% 20%,
+      rgba(255, 92, 130, 0.06) 0%,
+      transparent 52%
+    );
+}
+
+.lead-page-header,
+.lead-page-footer {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.lead-page-footer {
+  padding: 0 1.25rem 1.5rem;
+  margin-top: auto;
+}
+
+.lead-page-logo {
+  display: inline-flex;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.lead-page-back {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.lead-page-back:hover {
+  color: var(--color-primary);
+}
+
+.lead-page-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.25rem 2rem;
+}
+
+.lead-page-card {
+  width: 100%;
+  max-width: 32rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-pink);
+  box-shadow: 0 16px 42px rgba(26, 10, 16, 0.07);
+}
+
+@media (min-width: 640px) {
+  .lead-page-card {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.lead-page-intro {
+  margin-bottom: 1.5rem;
+}
+
+.lead-page-title {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+}
+
+.lead-page-description {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.lead-page-card .contact-form {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.lead-page-card .contact-success {
+  min-height: 18rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
