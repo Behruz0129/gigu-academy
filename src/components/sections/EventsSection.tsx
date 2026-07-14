@@ -21,7 +21,11 @@ const EVENT_IMAGES = {
     "/images/events/turkey-study-1.jpg",
     "/images/events/turkey-study-2.jpg",
   ],
-  masterclass: ["/images/events/masterclass-1.jpg"],
+  masterclass: [
+    "/images/events/masterclass-1.jpg",
+    "/images/events/masterclass-2.jpg",
+    "/images/events/masterclass-3.jpg",
+  ],
   "team-join": ["/images/events/team-join-1.jpg"],
 } as const;
 
