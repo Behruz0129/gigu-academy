@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | GIGU Moda Akademiyasi",
   },
   description:
-    "Ayol-qizlar uchun professional tikuvchilik va moda dizaynerlik akademiyasi. 14 yillik tajriba, 5000+ bitiruvchi, 4 ta filial.",
+    "Ayol-qizlar uchun professional tikuvchilik va moda dizaynerlik akademiyasi. 14 yillik tajriba, 5000+ bitiruvchi, 5 ta filial.",
   keywords: [
     "moda akademiyasi",
     "tikuvchilik kurslari",

@@ -37,4 +37,4 @@ RU: `/ru/lead/...` · EN: `/en/lead/...`
 | Sayt | Bitrix24 ID |
 |------|-------------|
 | Men — yosh dizaynerman | 189 |
-| Noldan boshlab professional | 185 |
+| Professional ta'lim dasturi | 185 |

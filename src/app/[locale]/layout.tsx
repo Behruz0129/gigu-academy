@@ -27,17 +27,17 @@ const metadataByLocale: Record<
   uz: {
     title: "GIGU Moda Akademiyasi — Tikuvchilik va Moda Dizayni",
     description:
-      "Ayol-qizlar uchun professional tikuvchilik va moda dizaynerlik akademiyasi. 14 yillik tajriba, 5000+ bitiruvchi, 4 ta filial.",
+      "Ayol-qizlar uchun professional tikuvchilik va moda dizaynerlik akademiyasi. 14 yillik tajriba, 5000+ bitiruvchi, 5 ta filial.",
   },
   ru: {
     title: "GIGU Moda Akademiyasi — Шитьё и модный дизайн",
     description:
-      "Профессиональная академия шитья и моды для женщин и девушек. 14 лет опыта, 5000+ выпускников, 4 филиала.",
+      "Профессиональная академия шитья и моды для женщин и девушек. 14 лет опыта, 5000+ выпускников, 5 филиалов.",
   },
   en: {
     title: "GIGU Fashion Academy — Sewing & Fashion Design",
     description:
-      "Professional sewing and fashion design academy for women and girls. 14 years of experience, 5000+ graduates, 4 branches.",
+      "Professional sewing and fashion design academy for women and girls. 14 years of experience, 5000+ graduates, 5 branches.",
   },
 };
 

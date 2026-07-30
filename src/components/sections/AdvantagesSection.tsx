@@ -7,7 +7,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { StatsWhyFloatDecor } from "@/components/sections/StatsWhyFloatDecor";
 
 const STATS_VIDEO = "/videos/stats.mp4";
-const STATS_POSTER = "/images/stats/poster.jpg";
+const STATS_POSTER = "/images/stats/poster.png";
 
 type AdvantageItem = {
   key: string;
@@ -114,7 +114,7 @@ export function AdvantagesSection() {
       key: "branches",
       value: t.advantages.items.branches.value,
       label: t.advantages.items.branches.label,
-      numericValue: 4,
+      numericValue: 5,
       icon: "building",
     },
     {

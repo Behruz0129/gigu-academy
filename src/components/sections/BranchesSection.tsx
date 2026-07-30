@@ -11,10 +11,11 @@ import {
 import type { BranchSlug } from "@/lib/i18n/landing-sections";
 
 const BRANCH_IMAGES: Record<BranchSlug, string> = {
-  tashkent: "/images/branches/tashkent.jpg",
-  andijon: "/images/branches/andijon.jpg",
-  fargona: "/images/branches/fargona.jpg",
-  samarqand: "/images/branches/samarqand.jpg",
+  tashkent: "/images/branches/tashkent.png",
+  andijon: "/images/branches/andijon.png",
+  fargona: "/images/branches/fargona.png",
+  samarqand: "/images/branches/samarqand.png",
+  xorazm: "/images/branches/xorazm.png",
 };
 
 export function BranchesSection() {
@@ -152,12 +153,19 @@ export function BranchesSection() {
                     loading="lazy"
                     decoding="async"
                     className="branches-card-img"
+                    /* Rasm hali qo'yilmagan filialda buzuq ikonka o'rniga
+                       bo'sh media foni qolsin */
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                    }}
                   />
                 </div>
                 <div className="branches-card-info">
                   <div className="branches-card-text">
                     <h3 className="branches-card-city">{branch.city}</h3>
-                    <p className="branches-card-address">{branch.address}</p>
+                    {branch.address ? (
+                      <p className="branches-card-address">{branch.address}</p>
+                    ) : null}
                   </div>
                   <div className="branches-card-actions">
                     <a
@@ -169,17 +177,19 @@ export function BranchesSection() {
                     >
                       <Icon name="phone" size={16} strokeWidth={2} />
                     </a>
-                    <a
-                      className="branches-card-action"
-                      href={branch.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={t.branches.mapLinkLabel}
-                      title={t.branches.mapLinkLabel}
-                      tabIndex={isClone ? -1 : undefined}
-                    >
-                      <Icon name="mapPin" size={16} strokeWidth={2} />
-                    </a>
+                    {branch.link ? (
+                      <a
+                        className="branches-card-action"
+                        href={branch.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={t.branches.mapLinkLabel}
+                        title={t.branches.mapLinkLabel}
+                        tabIndex={isClone ? -1 : undefined}
+                      >
+                        <Icon name="mapPin" size={16} strokeWidth={2} />
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </article>

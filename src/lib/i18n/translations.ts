@@ -151,7 +151,7 @@ export const translations: Record<Locale, Translations> = {
       ariaLabel: "Afzalliklar",
       playLabel: "Videoni ijro etish",
       items: {
-        branches: { value: "4", label: "Filial" },
+        branches: { value: "5", label: "Filial" },
         graduates: { value: "5000+", label: "Bitiruvchi" },
         staff: { value: "100+", label: "Xodimlar" },
         experience: { value: "14 yillik", label: "Tajriba" },
@@ -347,7 +347,7 @@ export const translations: Record<Locale, Translations> = {
       ariaLabel: "Преимущества",
       playLabel: "Воспроизвести видео",
       items: {
-        branches: { value: "4", label: "Филиала" },
+        branches: { value: "5", label: "Филиалов" },
         graduates: { value: "5000+", label: "Выпускников" },
         staff: { value: "100+", label: "Сотрудников" },
         experience: { value: "14 лет", label: "Опыта" },
@@ -543,7 +543,7 @@ export const translations: Record<Locale, Translations> = {
       ariaLabel: "Advantages",
       playLabel: "Play video",
       items: {
-        branches: { value: "4", label: "Branches" },
+        branches: { value: "5", label: "Branches" },
         graduates: { value: "5000+", label: "Graduates" },
         staff: { value: "100+", label: "Staff" },
         experience: { value: "14 yrs", label: "Experience" },

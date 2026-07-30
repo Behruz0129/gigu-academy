@@ -11,7 +11,8 @@ export type BranchSlug =
   | "tashkent"
   | "andijon"
   | "fargona"
-  | "samarqand";
+  | "samarqand"
+  | "xorazm";
 
 export type LandingSectionsContent = {
   events: {
@@ -275,7 +276,7 @@ export const landingSectionsUz: LandingSectionsContent = {
     ariaLabel: "Filiallar",
     number: "08",
     badge: "Filiallar",
-    title: "4 ta filial —",
+    title: "5 ta filial —",
     titleEm: "sizga yaqin",
     description:
       "Har bir filial zamonaviy jihozlangan ustaxonalar va qulay o'qish muhiti bilan jihozlangan.",
@@ -312,6 +313,15 @@ export const landingSectionsUz: LandingSectionsContent = {
         phone: "+998 55 588 08 80",
         link: "https://yandex.uz/maps/-/CPxLiYYj",
       },
+      {
+        slug: "xorazm",
+        city: "Xorazm",
+        // TODO: Yandex xarita havolasi kiritilishi kerak
+        address:
+          "Urganch shahri, Marifatchi mahallasi, Fayozov ko'chasi, 13-uy",
+        phone: "+998 55 588 08 80",
+        link: "",
+      },
     ],
   },
   courses: {
@@ -332,9 +342,9 @@ export const landingSectionsUz: LandingSectionsContent = {
         age: "11–14 yosh",
         specs: [
           { label: "Kurs davomiyligi", value: "12 oy" },
-          { label: "Dars", value: "Haftada 2 marta" },
+          { label: "Dars", value: "Haftada 3 kun" },
           { label: "Dars davomiyligi", value: "Har bir dars 2,5 soat" },
-          { label: "Oyiga", value: "8 ta amaliy dars" },
+          { label: "Oyiga", value: "12 ta dars" },
           { label: "Qo'shimcha", value: "Yordamchi ustoz" },
           { label: "Ish qurollari", value: "Taqdim qilinadi" },
           { label: "Darsdan tashqari shug'ullanish", value: "Imkoniyati mavjud" },
@@ -343,12 +353,12 @@ export const landingSectionsUz: LandingSectionsContent = {
       {
         id: "professional",
         label: "KURS 2",
-        title: "Noldan boshlab professional ta'lim dasturi",
-        age: "14+ yosh",
+        title: "Professional ta'lim dasturi",
+        age: "15+ yosh",
         featured: true,
         specs: [
-          { label: "Semestrlar", value: "4 ta semestr" },
-          { label: "Dars", value: "Haftada 3 marta" },
+          { label: "Kurs davomiyligi", value: "12 oy / 4 ta semestr" },
+          { label: "Dars", value: "Haftada 3 kun" },
           { label: "Dars davomiyligi", value: "Har bir dars 2,5 soat" },
           { label: "Ish qurollari", value: "Taqdim qilinadi" },
           { label: "Qo'shimcha", value: "Yordamchi ustoz" },
@@ -394,7 +404,7 @@ export const landingSectionsUz: LandingSectionsContent = {
         index: "01",
         question: "Manzil qulaymi?",
         answer:
-          "Ha, 4 ta filialimiz ham qulay hududlarda — shahar markaziga yaqin joylashgan. Avtobus, marshrutka va Toshkentda esa metro orqali bemalol yetib kelish mumkin.",
+          "Ha, 5 ta filialimiz ham qulay hududlarda — shahar markaziga yaqin joylashgan. Avtobus, marshrutka va Toshkentda esa metro orqali bemalol yetib kelish mumkin.",
       },
       {
         index: "02",
@@ -551,7 +561,7 @@ export const landingSectionsRu: LandingSectionsContent = {
     ariaLabel: "Филиалы",
     number: "08",
     badge: "Филиалы",
-    title: "4 филиала —",
+    title: "5 филиалов —",
     titleEm: "рядом с вами",
     description:
       "Каждый филиал оснащён современными мастерскими и комфортной средой для обучения.",
@@ -588,6 +598,14 @@ export const landingSectionsRu: LandingSectionsContent = {
         phone: "+998 55 588 08 80",
         link: "https://yandex.uz/maps/-/CPxLiYYj",
       },
+      {
+        slug: "xorazm",
+        city: "Хорезм",
+        // TODO: Yandex xarita havolasi kiritilishi kerak
+        address: "г. Ургенч, махалля Марифатчи, ул. Фаязова, 13",
+        phone: "+998 55 588 08 80",
+        link: "",
+      },
     ],
   },
   courses: {
@@ -607,9 +625,9 @@ export const landingSectionsRu: LandingSectionsContent = {
         age: "11–14 лет",
         specs: [
           { label: "Длительность", value: "12 месяцев" },
-          { label: "Занятия", value: "2 раза в неделю" },
+          { label: "Занятия", value: "3 дня в неделю" },
           { label: "Длительность урока", value: "2,5 часа" },
-          { label: "В месяц", value: "8 практических занятий" },
+          { label: "В месяц", value: "12 занятий" },
           { label: "Дополнительно", value: "Помощник преподавателя" },
           { label: "Инструменты", value: "Предоставляются" },
           { label: "Внеурочные занятия", value: "Доступны" },
@@ -618,12 +636,12 @@ export const landingSectionsRu: LandingSectionsContent = {
       {
         id: "professional",
         label: "КУРС 2",
-        title: "Профессиональная программа с нуля",
-        age: "14+ лет",
+        title: "Профессиональная программа обучения",
+        age: "15+ лет",
         featured: true,
         specs: [
-          { label: "Семестры", value: "4 семестра" },
-          { label: "Занятия", value: "3 раза в неделю" },
+          { label: "Длительность", value: "12 месяцев / 4 семестра" },
+          { label: "Занятия", value: "3 дня в неделю" },
           { label: "Длительность урока", value: "2,5 часа" },
           { label: "Инструменты", value: "Предоставляются" },
           { label: "Дополнительно", value: "Помощник преподавателя" },
@@ -669,7 +687,7 @@ export const landingSectionsRu: LandingSectionsContent = {
         index: "01",
         question: "Удобно ли добираться?",
         answer:
-          "Да, все 4 филиала расположены в удобных районах, близко к центру города.",
+          "Да, все 5 филиалов расположены в удобных районах, близко к центру города.",
       },
       {
         index: "02",
@@ -801,7 +819,7 @@ export const landingSectionsEn: LandingSectionsContent = {
     ariaLabel: "Branches",
     number: "08",
     badge: "Branches",
-    title: "4 branches —",
+    title: "5 branches —",
     titleEm: "near you",
     description:
       "Every branch features modern workshops and a comfortable learning environment.",
@@ -838,6 +856,14 @@ export const landingSectionsEn: LandingSectionsContent = {
         phone: "+998 55 588 08 80",
         link: "https://yandex.uz/maps/-/CPxLiYYj",
       },
+      {
+        slug: "xorazm",
+        city: "Khorezm",
+        // TODO: Yandex xarita havolasi kiritilishi kerak
+        address: "Urgench city, Marifatchi neighborhood, Fayozov street 13",
+        phone: "+998 55 588 08 80",
+        link: "",
+      },
     ],
   },
   courses: {
@@ -857,9 +883,9 @@ export const landingSectionsEn: LandingSectionsContent = {
         age: "Ages 11–14",
         specs: [
           { label: "Duration", value: "12 months" },
-          { label: "Classes", value: "Twice a week" },
+          { label: "Classes", value: "3 days a week" },
           { label: "Class length", value: "2.5 hours each" },
-          { label: "Monthly", value: "8 practical sessions" },
+          { label: "Monthly", value: "12 sessions" },
           { label: "Extra", value: "Assistant teacher" },
           { label: "Tools", value: "Provided" },
           { label: "After-class practice", value: "Available" },
@@ -868,12 +894,12 @@ export const landingSectionsEn: LandingSectionsContent = {
       {
         id: "professional",
         label: "COURSE 2",
-        title: "Professional program from scratch",
-        age: "Ages 14+",
+        title: "Professional training program",
+        age: "Ages 15+",
         featured: true,
         specs: [
-          { label: "Semesters", value: "4 semesters" },
-          { label: "Classes", value: "3 times a week" },
+          { label: "Duration", value: "12 months / 4 semesters" },
+          { label: "Classes", value: "3 days a week" },
           { label: "Class length", value: "2.5 hours each" },
           { label: "Tools", value: "Provided" },
           { label: "Extra", value: "Assistant teacher" },
@@ -919,7 +945,7 @@ export const landingSectionsEn: LandingSectionsContent = {
         index: "01",
         question: "Is the location convenient?",
         answer:
-          "Yes, all 4 branches are in convenient areas, close to city centers.",
+          "Yes, all 5 branches are in convenient areas, close to city centers.",
       },
       {
         index: "02",

@@ -6,6 +6,7 @@ export const CRM_BRANCH_IDS: Record<BranchSlug, number> = {
   samarqand: 143,
   tashkent: 145,
   fargona: 1553,
+  xorazm: 2115,
 };
 
 /** Saytdagi kurs ID → Bitrix24 kurs enum ID */
