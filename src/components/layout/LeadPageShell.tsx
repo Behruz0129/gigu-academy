@@ -22,7 +22,7 @@ export function LeadPageShell({ locale, children }: LeadPageShellProps) {
 
       <footer className="lead-page-footer">
         <Link href={localePath(locale)} className="lead-page-back">
-          ← gigu.uz
+          ← giguacademy.uz
         </Link>
       </footer>
     </div>

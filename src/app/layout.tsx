@@ -18,6 +18,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  /* Nisbiy URL'lar (OG rasm, alternates, canonical) shu manzilga nisbatan
+     hisoblanadi. Apex domen www ga 308 bilan yo'naltirilgani uchun
+     kanonik manzil — www. */
+  metadataBase: new URL("https://www.giguacademy.uz"),
   title: {
     default: "GIGU Moda Akademiyasi — Tikuvchilik va Moda Dizayni",
     template: "%s | GIGU Moda Akademiyasi",

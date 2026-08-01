@@ -11,7 +11,7 @@ export function JsonLd({ locale, subtitle }: JsonLdProps) {
     "@type": "EducationalOrganization",
     name: "GIGU Moda Akademiyasi",
     description: subtitle,
-    url: `https://gigu.uz/${locale}`,
+    url: `https://www.giguacademy.uz/${locale}`,
     inLanguage: locale,
     foundingDate: "2012",
     numberOfEmployees: {
