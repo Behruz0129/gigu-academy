@@ -214,13 +214,6 @@ export const landingSectionsUz: LandingSectionsContent = {
     studentsLabel: "O'quvchilar soni",
     items: [
       {
-        id: "1",
-        name: "",
-        experience: "",
-        students: "",
-        specialty: "",
-      },
-      {
         id: "2",
         name: "Eldoraxon Malikova",
         experience: "10 yillik",
@@ -255,13 +248,6 @@ export const landingSectionsUz: LandingSectionsContent = {
         experience: "4 yillik",
         students: "1500 nafar",
         specialty: "«Tikish» fani ustozi",
-      },
-      {
-        id: "7",
-        name: "",
-        experience: "",
-        students: "",
-        specialty: "",
       },
       {
         id: "8",
@@ -318,7 +304,7 @@ export const landingSectionsUz: LandingSectionsContent = {
         city: "Xorazm",
         // TODO: Yandex xarita havolasi kiritilishi kerak
         address:
-          "Urganch shahri, Marifatchi mahallasi, Fayozov ko'chasi, 13-uy",
+          "Urganch shahri, Marifatchi mahallasi, Fazzov ko'chasi, 9-uy",
         phone: "+998 55 588 08 80",
         link: "",
       },
@@ -435,7 +421,7 @@ export const landingSectionsUz: LandingSectionsContent = {
     description: "",
     contacts: {
       callLabel: "Qo'ng'iroq qiling",
-      phone: "+998 71 000 00 00",
+      phone: "+998 55 588 08 80",
       writeLabel: "Telegram orqali yozing",
       telegram: "@giguuz",
       telegramHref: "https://t.me/giguuz",
@@ -477,7 +463,7 @@ export const landingSectionsUz: LandingSectionsContent = {
     navTitle: "Navigatsiya",
     contactTitle: "Aloqa",
     socialTitle: "Ijtimoiy tarmoqlar",
-    phone: "+998 71 000 00 00",
+    phone: "+998 55 588 08 80",
     email: "info@gigu.uz",
     address: "Toshkent, O'zbekiston",
     cta: "Birinchi bepul darsga yoziling",
@@ -602,7 +588,7 @@ export const landingSectionsRu: LandingSectionsContent = {
         slug: "xorazm",
         city: "Хорезм",
         // TODO: Yandex xarita havolasi kiritilishi kerak
-        address: "г. Ургенч, махалля Марифатчи, ул. Фаязова, 13",
+        address: "г. Ургенч, махалля Марифатчи, ул. Фаззов, 9",
         phone: "+998 55 588 08 80",
         link: "",
       },
@@ -718,7 +704,7 @@ export const landingSectionsRu: LandingSectionsContent = {
     description: "",
     contacts: {
       callLabel: "Позвоните нам",
-      phone: "+998 71 000 00 00",
+      phone: "+998 55 588 08 80",
       writeLabel: "Напишите в Telegram",
       telegram: "@giguuz",
       telegramHref: "https://t.me/giguuz",
@@ -760,7 +746,7 @@ export const landingSectionsRu: LandingSectionsContent = {
     navTitle: "Навигация",
     contactTitle: "Контакты",
     socialTitle: "Соцсети",
-    phone: "+998 71 000 00 00",
+    phone: "+998 55 588 08 80",
     email: "info@gigu.uz",
     address: "Ташкент, Узбекистан",
     cta: "Запишитесь на первый бесплатный урок",
@@ -860,7 +846,7 @@ export const landingSectionsEn: LandingSectionsContent = {
         slug: "xorazm",
         city: "Khorezm",
         // TODO: Yandex xarita havolasi kiritilishi kerak
-        address: "Urgench city, Marifatchi neighborhood, Fayozov street 13",
+        address: "Urgench city, Marifatchi neighborhood, Fazzov street 9",
         phone: "+998 55 588 08 80",
         link: "",
       },
@@ -976,7 +962,7 @@ export const landingSectionsEn: LandingSectionsContent = {
     description: "",
     contacts: {
       callLabel: "Call us",
-      phone: "+998 71 000 00 00",
+      phone: "+998 55 588 08 80",
       writeLabel: "Message on Telegram",
       telegram: "@giguuz",
       telegramHref: "https://t.me/giguuz",
@@ -1018,7 +1004,7 @@ export const landingSectionsEn: LandingSectionsContent = {
     navTitle: "Navigation",
     contactTitle: "Contact",
     socialTitle: "Social media",
-    phone: "+998 71 000 00 00",
+    phone: "+998 55 588 08 80",
     email: "info@gigu.uz",
     address: "Tashkent, Uzbekistan",
     cta: "Sign up for your first free lesson",

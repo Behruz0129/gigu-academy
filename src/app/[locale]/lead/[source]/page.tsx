@@ -70,7 +70,10 @@ export default async function LeadSourcePage({ params }: LeadPageProps) {
           ) : null}
         </header>
 
-        <LeadForm source={page.slug} />
+        <LeadForm
+          source={page.slug}
+          successHref={`/${localeParam}/lead/${page.slug}/thanks`}
+        />
       </div>
     </LeadPageShell>
   );

@@ -522,7 +522,7 @@
   }
   to {
     transform: translate3d(
-      calc(-8 * (var(--marq-card) + var(--marq-gap))),
+      calc(-6 * (var(--marq-card) + var(--marq-gap))),
       0,
       0
     );
@@ -533,7 +533,7 @@
 @media (min-width: 1024px) {
   .teachers-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
     width: auto;
     animation: none;
@@ -952,6 +952,17 @@
   gap: 1.5rem;
   margin-top: 2.5rem;
   align-items: stretch;
+}
+
+/* Mobil (bir ustunli) ko'rinishda professional dastur birinchi turadi */
+.pricing-grid > .pricing-cell--featured {
+  order: -1;
+}
+
+@media (min-width: 1024px) {
+  .pricing-grid > .pricing-cell--featured {
+    order: 0;
+  }
 }
 
 @media (min-width: 1024px) {

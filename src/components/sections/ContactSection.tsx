@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/SectionHeader";
 
 export function ContactSection() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const c = t.contact;
 
   return (
@@ -23,7 +23,7 @@ export function ContactSection() {
           </ScrollReveal>
 
           <ScrollReveal variant="scale" className="contact-form-wrap" delay={60}>
-            <LeadForm source="web" />
+            <LeadForm source="web" successHref={`/${locale}/thanks`} />
           </ScrollReveal>
         </div>
       </div>

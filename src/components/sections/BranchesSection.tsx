@@ -15,7 +15,7 @@ const BRANCH_IMAGES: Record<BranchSlug, string> = {
   andijon: "/images/branches/andijon.png",
   fargona: "/images/branches/fargona.png",
   samarqand: "/images/branches/samarqand.png",
-  xorazm: "/images/branches/xorazm.png",
+  xorazm: "/images/branches/xorazm.jpg",
 };
 
 export function BranchesSection() {

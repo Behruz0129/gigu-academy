@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { Icon } from "@/components/ui/Icon";
 import type { CrmCourseId } from "@/lib/crm/bitrix24-config";
@@ -35,9 +36,23 @@ type LeadFormProps = {
   /** `web` — asosiy landing; boshqa qiymatlar `/lead/[source]` slug */
   source?: string;
   className?: string;
+  /** Berilsa, muvaffaqiyatli yuborishdan keyin shu sahifaga o'tiladi
+      (inline "rahmat" bloki o'rniga) */
+  successHref?: string;
 };
 
-export function LeadForm({ source = "web", className = "" }: LeadFormProps) {
+/** Meta Pixel'ga konversiya hodisasini yuborish (pixel yuklanmagan bo'lsa jim o'tadi) */
+function trackLeadConversion() {
+  const fbq = (window as { fbq?: (...args: unknown[]) => void }).fbq;
+  fbq?.("track", "Lead");
+}
+
+export function LeadForm({
+  source = "web",
+  className = "",
+  successHref,
+}: LeadFormProps) {
+  const router = useRouter();
   const { t } = useI18n();
   const f = t.contact.form;
 
@@ -99,13 +114,22 @@ export function LeadForm({ source = "web", className = "" }: LeadFormProps) {
         setSubmitError(
           [data.error, data.details].filter(Boolean).join(" — ") || f.submitError,
         );
+        setSubmitting(false);
+        return;
+      }
+
+      trackLeadConversion();
+
+      if (successHref) {
+        // Yangi sahifada "rahmat" — submitting holati redirect tugaguncha qoladi
+        router.push(successHref);
         return;
       }
 
       setSubmitted(true);
+      setSubmitting(false);
     } catch {
       setSubmitError(f.submitError);
-    } finally {
       setSubmitting(false);
     }
   }
