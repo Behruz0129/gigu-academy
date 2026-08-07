@@ -1,11 +1,13 @@
 import {
   CRM_BRANCH_IDS,
   CRM_COURSE_IDS,
+  CRM_COURSE_NAMES,
   CRM_MAIN_SOURCE,
   isBranchSlug,
   isCrmCourseId,
   type CrmCourseId,
 } from "@/lib/crm/bitrix24-config";
+import type { UtmParams } from "@/lib/crm/utm";
 import { postJsonHttps } from "@/lib/crm/https-json";
 import { getLeadSourcePage } from "@/lib/crm/lead-sources";
 import { isValidAge, normalizeUzPhone } from "@/lib/crm/validate-lead";
@@ -18,6 +20,7 @@ export type LeadPayload = {
   branch: BranchSlug;
   course: CrmCourseId;
   source?: string;
+  utm?: UtmParams;
 };
 
 export type SubmitLeadResult =
@@ -94,6 +97,14 @@ export async function submitLeadToBitrix24(
     UF_CRM_1774606308760: payload.age,
     UF_CRM_1769179376: [courseId],
     UF_CRM_LANDING_CODE: [source.landingCode],
+    // Kurs nomi matn sifatida — Bitrix tarafdagi kelishuv (2 qiymatdan biri)
+    UF_CRM_KURS: CRM_COURSE_NAMES[payload.course],
+    // Bitrix standart UTM maydonlari — reklama linkidan, bo'lmasa bo'sh
+    UTM_SOURCE: payload.utm?.source ?? "",
+    UTM_MEDIUM: payload.utm?.medium ?? "",
+    UTM_CAMPAIGN: payload.utm?.campaign ?? "",
+    UTM_CONTENT: payload.utm?.content ?? "",
+    UTM_TERM: payload.utm?.term ?? "",
   };
 
   try {

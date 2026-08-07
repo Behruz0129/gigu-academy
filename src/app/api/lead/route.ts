@@ -4,6 +4,8 @@ import type { CrmCourseId } from "@/lib/crm/bitrix24-config";
 import { submitLeadToBitrix24 } from "@/lib/crm/submit-lead";
 import type { BranchSlug } from "@/lib/i18n/landing-sections";
 
+import { UTM_KEYS, type UtmParams } from "@/lib/crm/utm";
+
 type LeadRequestBody = {
   name?: string;
   phone?: string;
@@ -11,7 +13,21 @@ type LeadRequestBody = {
   branch?: string;
   course?: string;
   source?: string;
+  utm?: Record<string, unknown>;
 };
+
+/** Clientdan kelgan UTM obyektini tozalash — faqat ma'lum kalitlar, matn, 250 belgi */
+function sanitizeUtm(raw: Record<string, unknown> | undefined): UtmParams {
+  const utm: UtmParams = {};
+  if (!raw || typeof raw !== "object") return utm;
+  for (const key of UTM_KEYS) {
+    const value = raw[key];
+    if (typeof value === "string" && value.trim()) {
+      utm[key] = value.trim().slice(0, 250);
+    }
+  }
+  return utm;
+}
 
 export async function POST(request: Request) {
   let body: LeadRequestBody;
@@ -35,6 +51,7 @@ export async function POST(request: Request) {
     branch: body.branch as BranchSlug,
     course: body.course as CrmCourseId,
     source: body.source,
+    utm: sanitizeUtm(body.utm),
   });
 
   if (!result.ok) {

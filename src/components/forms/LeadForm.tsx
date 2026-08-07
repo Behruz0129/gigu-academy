@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { Icon } from "@/components/ui/Icon";
 import type { CrmCourseId } from "@/lib/crm/bitrix24-config";
+import { captureUtmFromLocation, readUtmParams } from "@/lib/crm/utm";
 import { normalizeUzPhone, isValidAge } from "@/lib/crm/validate-lead";
 import type { BranchSlug } from "@/lib/i18n/landing-sections";
 
@@ -53,6 +54,11 @@ export function LeadForm({
   successHref,
 }: LeadFormProps) {
   const router = useRouter();
+
+  // Reklama linkidagi UTM'larni sessiyaga yozib qo'yamiz (submit'da o'qiladi)
+  useEffect(() => {
+    captureUtmFromLocation();
+  }, []);
   const { t } = useI18n();
   const f = t.contact.form;
 
@@ -101,6 +107,7 @@ export function LeadForm({
           branch: form.branch,
           course: form.course,
           source,
+          utm: readUtmParams(),
         }),
       });
 

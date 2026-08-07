@@ -17,6 +17,14 @@ export const CRM_COURSE_IDS = {
 
 export type CrmCourseId = keyof typeof CRM_COURSE_IDS;
 
+/** Bitrix24 `UF_CRM_KURS` (matn) uchun kurs nomlari — AYNAN formadagidek.
+    Locale'dan qat'i nazar doim shu ikki qiymatdan biri yuboriladi
+    (Bitrix tarafdagi kelishuv shu). */
+export const CRM_COURSE_NAMES: Record<CrmCourseId, string> = {
+  "young-designer": "Men — yosh dizaynerman",
+  professional: "Professional ta'lim dasturi",
+};
+
 /** Asosiy landing contact formasi */
 export const CRM_MAIN_SOURCE = {
   sourceId: "WEB",
